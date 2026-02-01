@@ -127,30 +127,6 @@ export default function AuthLanding() {
               <Stack spacing={1.5}>
                 <Button
                   fullWidth
-                  variant="contained"
-                  size="large"
-                  endIcon={<ArrowForwardRoundedIcon />}
-                  component={Link as any}
-                  href="/register"
-                  sx={{
-                    borderRadius: 2.5,
-                    textTransform: "none",
-                    fontWeight: 800,
-                    py: 1.25,
-                    boxShadow: "none",
-                    "&:hover": {
-                      boxShadow: "none",
-                      transform: "translateY(-1px)",
-                    },
-                    "&:active": { transform: "translateY(0px)" },
-                    transition: "transform 140ms ease",
-                  }}
-                >
-                  {t("register")}
-                </Button>
-
-                <Button
-                  fullWidth
                   variant="outlined"
                   size="large"
                   component={Link as any}

@@ -162,15 +162,6 @@ export default function LoginPage() {
 
                   <Divider />
 
-                  {/* Link locale-aware: no concatenes locale */}
-                  <Button
-                    component={Link as any}
-                    href="/register"
-                    variant="text"
-                  >
-                    {t("toRegister")}
-                  </Button>
-
                   <Button
                     component={Link as any}
                     href="/forgot-password"
