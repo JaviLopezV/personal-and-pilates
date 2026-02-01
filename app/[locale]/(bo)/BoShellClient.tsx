@@ -70,14 +70,6 @@ export default function BoShellClient({
           <ListItemButton
             onClick={!isDesktop && toggleDrawer}
             component={Link as any}
-            href="/bo/blogs"
-          >
-            <ListItemText primary={t("nav.blogs")} />
-          </ListItemButton>
-
-          <ListItemButton
-            onClick={!isDesktop && toggleDrawer}
-            component={Link as any}
             href="/bo/users"
           >
             <ListItemText primary={t("nav.users")} />

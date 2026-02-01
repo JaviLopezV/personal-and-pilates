@@ -23,35 +23,13 @@ export async function DELETE(req: NextRequest) {
   }
 
   try {
-    if (MODE === "delete") {
-      await prisma.$transaction([
-        prisma.post.deleteMany({ where: { authorId: userId } }),
-        prisma.user.delete({ where: { id: userId } }),
-      ]);
-    } else {
-      const deletedEmail = "deleted@arrow-blog.local";
-
-      const deletedUser = await prisma.user.upsert({
-        where: { email: deletedEmail },
-        update: {},
-        create: {
-          email: deletedEmail,
-          name: "Deleted user",
-          password: null,
-          role: "CLIENT",
-        },
-        select: { id: true },
-      });
-
-      await prisma.$transaction([
-        prisma.post.updateMany({
-          where: { authorId: userId },
-          data: { authorId: deletedUser.id },
-        }),
-        prisma.user.delete({ where: { id: userId } }),
-      ]);
-    }
-
+    await prisma.user.update({
+      where: { id: userId },
+      data: {
+        deleted: true,
+        deletedAt: new Date(),
+      },
+    });
     return NextResponse.json({ ok: true });
   } catch {
     return NextResponse.json({ error: "DELETE_FAILED" }, { status: 500 });

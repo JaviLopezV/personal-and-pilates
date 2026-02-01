@@ -2,9 +2,9 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Arrow Apps",
-    short_name: "Arrow",
-    description: "Plataforma web personal",
+    name: "Personal & Pilates",
+    short_name: "P&P",
+    description: "Plataforma personal de Pilates",
     start_url: "/es",
     display: "standalone",
     background_color: "#0b1220",

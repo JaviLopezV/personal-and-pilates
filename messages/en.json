@@ -119,7 +119,7 @@
       "cookies": "Cookies",
       "useTerms": "Terms of use",
       "termsAndConditions": "Terms and conditions",
-      "copyright": "© {year} Arrow Apps — Javier López Villanueva"
+      "copyright": "© {year} Personal & Pilates — Javier López Villanueva"
     }
   },
   "foLayout": {
@@ -132,7 +132,7 @@
       "bookings": "My bookings",
       "openMenuAria": "open navigation menu"
     },
-    "brand": "Arrow Apps"
+    "brand": "Personal & Pilates"
   },
   "boLayout": {
     "drawerTitle": "Back Office",
@@ -327,7 +327,7 @@
 
   "legalCookies": {
     "title": "Cookies Policy",
-    "p1": "Arrow Apps only uses technical cookies necessary for the operation of the platform and user authentication.",
+    "p1": "Personal & Pilates only uses technical cookies necessary for the operation of the platform and user authentication.",
     "p2": "No analytics, advertising or third-party tracking cookies are used.",
     "p3": "For this reason, displaying a cookie banner is not required under current regulations."
   },
@@ -337,8 +337,8 @@
     "owner": "<b>Owner:</b> Javier López Villanueva",
     "email": "<b>Email:</b> arrow.apps.jlv@gmail.com",
     "activity": "<b>Activity:</b> Development and maintenance of a personal web platform",
-    "domain": "<b>Domain:</b> https://arrow-blog.vercel.app",
-    "p1": "This Legal Notice governs access, browsing and use of the Arrow Apps website, owned by Javier López Villanueva.",
+    "domain": "<b>Domain:</b> https://personal-pilates.vercel.app",
+    "p1": "This Legal Notice governs access, browsing and use of the Personal & Pilates website, owned by Javier López Villanueva.",
     "p2": "Access to and use of the site implies express and unconditional acceptance of all the conditions set out herein.",
     "p3": "The owner is not responsible for improper use of the published information or for any damages that may arise from use of the website."
   },
@@ -347,7 +347,7 @@
     "title": "Privacy Policy",
     "owner": "<b>Controller:</b> Javier López Villanueva",
     "email": "<b>Email:</b> arrow.apps.jlv@gmail.com",
-    "site": "<b>Website:</b> https://arrow-blog.vercel.app",
+    "site": "<b>Website:</b> https://personal-pilates.vercel.app",
 
     "p1": "This policy describes how users’ personal data are collected, used and protected.",
 
@@ -368,10 +368,10 @@
 
   "legalTermsAndConditions": {
     "title": "Terms and Conditions of Use",
-    "intro": "These Terms and Conditions set out the rules applicable to the use of Arrow Apps. By accessing, browsing or registering, you agree to comply with them.",
+    "intro": "These Terms and Conditions set out the rules applicable to the use of Personal & Pilates. By accessing, browsing or registering, you agree to comply with them.",
 
     "s1Title": "1. Purpose",
-    "s1Body": "Arrow Apps is a personal web platform in development that allows users to create an account and use the application’s features.",
+    "s1Body": "Personal & Pilates is a personal web platform in development that allows users to create an account and use the application’s features.",
 
     "s2Title": "2. User obligations",
     "s2Li1": "Use the platform lawfully and in good faith.",
@@ -399,7 +399,7 @@
 
   "legalUseTerms": {
     "title": "Terms of Use",
-    "intro": "These Terms of Use govern access to and use of Arrow Apps. By accessing and using the site, you accept these conditions.",
+    "intro": "These Terms of Use govern access to and use of Personal & Pilates. By accessing and using the site, you accept these conditions.",
 
     "s1Title": "1. Access to the service",
     "s1Body": "General access to the site is free of charge. Some features may require registration and sign-in. The owner may modify, suspend or interrupt the service in whole or in part for technical, security or maintenance reasons.",

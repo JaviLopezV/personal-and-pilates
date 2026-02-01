@@ -1,6 +1,6 @@
-# Arrow Apps
+# Personal & Pilates
 
-Arrow Apps es una aplicación web moderna construida con **Next.js (App Router)**, que incluye autenticación, backoffice con control de roles, internacionalización, PWA/offline, rate limiting y persistencia en PostgreSQL.
+Personal & Pilates es una aplicación web moderna construida con **Next.js (App Router)**, que incluye autenticación, backoffice con control de roles, internacionalización, PWA/offline, rate limiting y persistencia en PostgreSQL.
 
 Este README **refleja el estado real del código**, no el histórico.
 
@@ -106,7 +106,7 @@ Implementado con **NextAuth (Credentials Provider)**
 ### Redirecciones
 
 - Sin sesión → `/[locale]/auth`
-- ADMIN → `/[locale]/bo/blogs`
+- ADMIN → `/[locale]/bo/classes`
 - CLIENT → `/[locale]/under-construction`
 
 ---
@@ -200,7 +200,6 @@ DELETE /api/account
 
 Modo actual: **anonymize**
 
-- Reasigna posts a usuario `deleted@arrow-blog.local`
 - Elimina el usuario original
 
 Requiere sesión activa.

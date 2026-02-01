@@ -121,24 +121,6 @@ export default function FoLayout({ children, pageStatuses }: Props) {
 
                     <MenuItem
                       component={Link as any}
-                      href="/blog"
-                      onClick={handleCloseMenu}
-                      disabled={isInactive("/blog")}
-                    >
-                      {t("nav.blog")}
-                    </MenuItem>
-
-                    <MenuItem
-                      component={Link as any}
-                      href="/games"
-                      onClick={handleCloseMenu}
-                      disabled={isInactive("/games")}
-                    >
-                      {t("nav.games")}
-                    </MenuItem>
-
-                    <MenuItem
-                      component={Link as any}
                       href="/account/settings"
                       onClick={handleCloseMenu}
                     >
@@ -211,26 +193,6 @@ export default function FoLayout({ children, pageStatuses }: Props) {
                     disabled={isInactive("/account/bookings")}
                   >
                     {t("nav.bookings")}
-                  </Button>
-
-                  <Button
-                    color="inherit"
-                    component={Link as any}
-                    href="/blog"
-                    sx={{ whiteSpace: "nowrap" }}
-                    disabled={isInactive("/blog")}
-                  >
-                    {t("nav.blog")}
-                  </Button>
-
-                  <Button
-                    color="inherit"
-                    component={Link as any}
-                    href="/games"
-                    sx={{ whiteSpace: "nowrap" }}
-                    disabled={isInactive("/games")}
-                  >
-                    {t("nav.games")}
                   </Button>
 
                   <Button

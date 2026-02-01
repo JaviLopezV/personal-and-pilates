@@ -9,8 +9,6 @@ export type PageStatus = "ACTIVE" | "UNDER_CONSTRUCTION" | "INACTIVE";
  * (Aquí defines “qué existe” en FO a efectos de administración.)
  */
 export const FO_PAGES: Array<{ path: string; name: string }> = [
-  { path: "/blog", name: "Blog" },
-  { path: "/games", name: "Games" },
   { path: "/account/settings", name: "Account settings" },
   { path: "/classes", name: "Classes" },
   { path: "/account/bookings", name: "My bookings" },

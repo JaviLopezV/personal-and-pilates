@@ -27,8 +27,18 @@ function safeSearchParams(sp: unknown): Record<string, unknown> {
 }
 
 function roleWhere(filter: RoleFilter) {
-  return filter === "ALL" ? {} : { role: filter as any };
+  return filter === "ALL"
+    ? { deleted: false }
+    : { deleted: false, role: filter as any };
 }
+
+type BoUser = {
+  id: string;
+  email: string;
+  name: string | null;
+  role: Role;
+  disabled: boolean;
+};
 
 export default async function BoUsersPage({ params, searchParams }: Props) {
   const { locale } = await params;
@@ -41,10 +51,16 @@ export default async function BoUsersPage({ params, searchParams }: Props) {
   const actorRole = ((session?.user as any)?.role ?? "CLIENT") as Role;
   const actorId = ((session?.user as any)?.id ?? "") as string;
 
-  const users = await prisma.user.findMany({
+  const users: BoUser[] = await prisma.user.findMany({
     where: roleWhere(selectedRole),
     orderBy: [{ role: "asc" }, { email: "asc" }],
-    select: { id: true, email: true, name: true, role: true, disabled: true },
+    select: {
+      id: true,
+      email: true,
+      name: true,
+      role: true,
+      disabled: true,
+    },
   });
 
   return (

@@ -14,8 +14,8 @@ import LegalFooter from "./components/LegalFooter";
 import type { Metadata, Viewport } from "next";
 
 export const metadata: Metadata = {
-  title: "Arrow Apps",
-  description: "Plataforma web personal",
+  title: "Personal & Pilates",
+  description: "Plataforma personal de Pilates",
   manifest: "/manifest.webmanifest",
 };
 

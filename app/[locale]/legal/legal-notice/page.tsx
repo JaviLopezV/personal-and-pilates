@@ -5,7 +5,7 @@ export default async function Page() {
   const t = await getTranslations("legalNotice");
 
   const email = "arrow.apps.jlv@gmail.com";
-  const domain = "https://arrow-blog.vercel.app";
+  const domain = "https://personal-pilates.vercel.app";
 
   const Bold = (chunks: React.ReactNode) => <b>{chunks}</b>;
 

@@ -63,7 +63,7 @@ export default function LoginPage() {
       const role = (session?.user as any)?.role;
 
       hideLegalFooter();
-      router.push(role === "ADMIN" ? `/${locale}/bo/blogs` : `/${locale}`);
+      router.push(role === "ADMIN" ? `/${locale}/bo/classes` : `/${locale}`);
       router.refresh();
     } catch {
       setError("errorGeneric");

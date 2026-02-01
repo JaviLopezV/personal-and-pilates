@@ -19,7 +19,7 @@ export default async function Home({ params }: Props) {
 
   // Ajusta estas rutas a las reales de tu proyecto
   if (role === "ADMIN") {
-    redirect(`/bo/blogs`);
+    redirect(`/bo/classes`);
   }
 
   // CLIENT (o cualquier otro caso)
