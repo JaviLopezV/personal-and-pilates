@@ -1,0 +1,142 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum PostStatus {
+  DRAFT
+  PUBLISHED
+}
+
+enum Role {
+  SUPERADMIN
+  ADMIN
+  CLIENT
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  password  String?
+  role      Role     @default(CLIENT)
+
+  disabled  Boolean  @default(false)
+
+  emailVerifiedAt DateTime?
+  verifyTokenHash String?
+  verifyTokenExp  DateTime?
+
+  resetTokenHash String?
+  resetTokenExp  DateTime?
+
+  oauthProvider   String?
+  oauthSubject    String?
+
+  posts Post[]
+
+    bookings Booking[]
+
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+
+
+model Post {
+  id          String     @id @default(cuid())
+  title       String
+  slug        String     @unique
+  excerpt     String?
+  content     String
+  coverImage  String?
+  status      PostStatus @default(DRAFT)
+
+  authorId    String
+  author      User       @relation(fields: [authorId], references: [id], onDelete: Restrict)
+
+  publishedAt DateTime?
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  @@index([status, publishedAt])
+  @@index([authorId])
+}
+
+enum PageStatus {
+  ACTIVE
+  UNDER_CONSTRUCTION
+  INACTIVE
+}
+
+model Page {
+  id        String     @id @default(cuid())
+
+  /**
+   * Path del FO SIN locale. Ej: "/home", "/games", "/account/settings".
+   * Debe ser único.
+   */
+  path      String     @unique
+
+  /** Nombre opcional para mostrar en BO */
+  name      String?
+
+  status    PageStatus @default(ACTIVE)
+
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  @@index([status])
+}
+
+
+enum BookingStatus {
+  ACTIVE
+  CANCELED
+}
+
+model ClassSession {
+  id         String   @id @default(cuid())
+
+  // Info visible
+  title      String
+  type       String   // "Pilates suelo", "Reformer", etc.
+  instructor String?
+  notes      String?
+
+  // Fecha/hora
+  startsAt   DateTime
+  endsAt     DateTime
+
+  // Aforo
+  capacity   Int      @default(10)
+
+  bookings   Booking[]
+
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([startsAt])
+}
+
+model Booking {
+  id         String        @id @default(cuid())
+  status     BookingStatus @default(ACTIVE)
+
+  sessionId  String
+  userId     String
+
+  session    ClassSession  @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  user       User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt  DateTime      @default(now())
+  canceledAt DateTime?
+
+  @@unique([sessionId, userId])
+  @@index([userId, status])
+  @@index([sessionId, status])
+}

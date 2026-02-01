@@ -1,0 +1,526 @@
+{
+  "auth": {
+    "title": "Bienvenido",
+    "subtitle": "Crea una cuenta o inicia sesión para empezar.",
+    "register": "Crear cuenta",
+    "login": "Iniciar sesión",
+    "footnote": "Al continuar aceptas nuestras políticas (luego las añadimos)."
+  },
+
+  "forgotPassword": {
+    "title": "¿Olvidaste tu contraseña?",
+    "subtitle": "Te enviaremos un código para restablecerla.",
+    "email": "Email",
+    "submitting": "Enviando…",
+    "submit": "Enviar código",
+    "success": "Si el email existe, te hemos enviado un código. Revisa tu bandeja de entrada.",
+    "errorGeneric": "No se ha podido enviar. Inténtalo de nuevo.",
+    "backToLogin": "Volver a login",
+    "haveCode": "Ya tengo un código → Restablecer"
+  },
+  "resetPassword": {
+    "title": "Restablecer contraseña",
+    "subtitle": "Introduce tu email y el código que te enviamos.",
+    "email": "Email",
+    "code": "Código",
+    "verify": "Verificar código",
+    "verifying": "Verificando…",
+    "needCode": "No tengo código → Solicitar",
+    "backToLogin": "Volver a login",
+    "codeOk": "Código correcto. Ya puedes cambiar tu contraseña.",
+    "newPassword": "Nueva contraseña",
+    "repeatPassword": "Repetir contraseña",
+    "passwordHelp": "Mínimo 8 caracteres.",
+    "save": "Guardar contraseña",
+    "saving": "Guardando…",
+    "successRedirect": "Contraseña actualizada. Redirigiendo a login…",
+    "passwordsDontMatch": "Las contraseñas no coinciden",
+    "INVALID_CODE": "El código no es válido",
+    "CODE_EXPIRED": "El código ha caducado",
+    "errorGeneric": "Ha ocurrido un error"
+  },
+
+  "register": {
+    "title": "Crear cuenta",
+    "subtitle": "Crea tu perfil.",
+    "nameOptional": "Nombre (opcional)",
+    "email": "Email",
+    "passwordMin": "Password (mín 8)",
+    "passwordHelp": "Usa al menos 8 caracteres.",
+    "submitting": "Creando cuenta…",
+    "submit": "Registrarme",
+    "successRedirect": "Cuenta creada. Redirigiendo a iniciar sesión…",
+    "errorGeneric": "Error registrando",
+    "toLogin": "Ya tengo cuenta → Iniciar sesión",
+    "footnote": "Al registrarte aceptas nuestras políticas (luego las añadimos).",
+    "successVerifyRedirect": "Cuenta creada. Te hemos enviado un código para verificar tu correo…"
+  },
+  "login": {
+    "title": "Iniciar sesión",
+    "subtitle": "Accede para continuar.",
+    "email": "Email",
+    "password": "Password",
+    "submitting": "Entrando…",
+    "submit": "Entrar",
+    "invalidCredentials": "Credenciales incorrectas",
+    "accountDisabled": "Cuenta deshabilitada o no verificada. Revisa tu email o contacta con soporte.",
+    "toRegister": "No tengo cuenta → Registrarme",
+    "forgotPassword": "He olvidado mi contraseña →"
+  },
+  "verifyEmail": {
+    "title": "Verifica tu correo",
+    "subtitle": "Te enviamos un código al email. Escríbelo aquí para habilitar tu cuenta.",
+    "email": "Email",
+    "code": "Código",
+    "verifying": "Verificando…",
+    "verify": "Verificar",
+    "resend": "Reenviar código",
+    "successRedirect": "Correo verificado. Redirigiendo al login…",
+    "INVALID_CODE": "Código inválido.",
+    "CODE_EXPIRED": "El código ha caducado. Reenvía uno nuevo.",
+    "INVALID_BODY": "Solicitud inválida.",
+    "errorGeneric": "Ha ocurrido un error. Inténtalo de nuevo.",
+    "backToLogin": "Volver a login"
+  },
+  "discover": {
+    "emptyTitle": "No hay más perfiles 😢",
+    "emptySubtitle": "Vuelve más tarde o ajusta tus filtros (lo añadimos luego).",
+    "defaultUser": "Usuario",
+    "noBio": "Sin bio todavía.",
+    "pass": "Pass",
+    "like": "Like"
+  },
+  "common": {
+    "logout": "Cerrar sesión",
+    "back": "Volver"
+  },
+  "account": {
+    "delete": {
+      "title": "Eliminar cuenta",
+      "warning": "Esta acción es irreversible. Se eliminará tu cuenta y tus datos de acceso.",
+      "cta": "Eliminar mi cuenta",
+      "success": "Cuenta eliminada. Cerrando sesión…",
+      "dialogTitle": "¿Seguro?",
+      "dialogText": "Vas a eliminar tu cuenta. Esta acción es irreversible.",
+      "cancel": "Cancelar",
+      "confirm": "Sí, eliminar",
+      "confirmLoading": "Eliminando…",
+      "DELETE_FAILED": "DELETE_FAILED"
+    }
+  },
+  "cookies": {
+    "banner": {
+      "text": "Este sitio usa cookies técnicas necesarias para la autenticación y funcionamiento de cuentas. Más información en la Política de <link>Cookies</link>",
+      "accept": "Aceptar"
+    }
+  },
+  "legal": {
+    "footer": {
+      "legalNotice": "Aviso Legal",
+      "privacy": "Privacidad",
+      "cookies": "Cookies",
+      "useTerms": "Términos de uso",
+      "termsAndConditions": "Términos y condiciones",
+      "copyright": "© {year} Arrow Apps — Javier López Villanueva"
+    }
+  },
+  "foLayout": {
+    "nav": {
+      "home": "Inicio",
+      "blog": "Posts",
+      "settings": "Ajustes",
+      "games": "Juegos",
+      "classes": "Clases",
+      "bookings": "Mis reservas",
+      "openMenuAria": "open navigation menu"
+    },
+    "brand": "Arrow Apps"
+  },
+  "boLayout": {
+    "drawerTitle": "Back Office",
+    "nav": {
+      "users": "Usuarios",
+      "pages": "Páginas",
+      "blogs": "Blogs",
+      "settings": "Ajustes",
+      "classes": "Classes"
+    },
+    "topbarTitle": "Admin",
+    "openMenuAria": "open navigation menu"
+  },
+  "fo": {
+    "classes": {
+      "calendarTitle": "Calendario de clases",
+      "prevWeek": "Semana anterior",
+      "thisWeek": "Semana actual",
+      "nextWeek": "Semana siguiente",
+      "emptyWeek": "No hay clases esta semana",
+      "noClasses": "Sin clases",
+      "title": "Clases",
+      "subtitle": "Consulta disponibilidad y reserva tu plaza.",
+      "spots": "libres de",
+      "instructor": "Profe",
+      "book": "Reservar",
+      "cancel": "Cancelar",
+      "full": "Completo",
+      "empty": "No hay clases publicadas en los próximos días.",
+      "retry": "Reintentar",
+      "errors": {
+        "UNAUTHORIZED": "Necesitas iniciar sesión.",
+        "FULL": "La clase está completa.",
+        "ALREADY_BOOKED": "Ya tienes una reserva en esta clase.",
+        "LOAD_FAILED": "No se pudieron cargar las clases.",
+        "BOOK_FAILED": "No se pudo reservar.",
+        "CANCEL_FAILED": "No se pudo cancelar."
+      }
+    },
+    "bookings": {
+      "title": "Mis reservas",
+      "instructor": "Profe",
+      "cancel": "Cancelar",
+      "empty": "No tienes reservas activas.",
+      "retry": "Reintentar",
+      "errors": {
+        "UNAUTHORIZED": "Necesitas iniciar sesión.",
+        "LOAD_FAILED": "No se pudieron cargar tus reservas.",
+        "CANCEL_FAILED": "No se pudo cancelar."
+      }
+    },
+    "home": {
+      "title": "Inicio"
+    },
+    "blog": {
+      "title": "Blog",
+      "subtitle": "Últimas publicaciones",
+      "empty": "No hay posts publicados todavía.",
+      "published": "Publicado"
+    }
+  },
+  "bo": {
+    "boClasses": {
+      "title": "Clases",
+      "new": "Nueva clase",
+      "empty": "No hay clases creadas todavía.",
+      "edit": "Editar"
+    },
+    "boNewClass": {
+      "title": "Nueva clase",
+      "fields": {
+        "title": "Título",
+        "type": "Tipo",
+        "instructor": "Instructor",
+        "notes": "Notes",
+        "startsAt": "Empieza a las",
+        "endsAt": "Termina a las",
+        "capacity": "Capacidad",
+        "startDate": "Fecha inicio",
+        "startTime": "Hora inicio",
+        "endDate": "Fecha fin",
+        "endTime": "Hora fin"
+      },
+      "submit": { "idle": "Create", "pending": "Creating..." },
+      "errors": { "reviewFields": "Please review the fields." }
+    },
+    "boEditClass": {
+      "title": "Edit class",
+      "submit": { "idle": "Save", "pending": "Saving..." },
+      "delete": { "idle": "Delete", "pending": "Deleting..." },
+      "deleted": "Deleted."
+    },
+
+    "users": {
+      "title": "Usuarios",
+      "subtitle": "Gestiona roles y acceso al login (cuentas deshabilitadas).",
+      "empty": "No hay usuarios para este filtro.",
+      "noName": "Sin nombre",
+      "selfProtected": "No puedes aplicarte cambios a ti mismo.",
+      "filters": {
+        "roleLabel": "Filtrar por rol",
+        "allRoles": "Todos"
+      },
+      "roles": {
+        "SUPERADMIN": "SUPERADMIN",
+        "ADMIN": "ADMIN",
+        "CLIENT": "CLIENT"
+      },
+      "status": {
+        "enabled": "Activa",
+        "disabled": "Deshabilitada"
+      },
+      "actions": {
+        "disable": "Deshabilitar",
+        "enable": "Habilitar",
+        "makeAdmin": "Hacer ADMIN",
+        "removeAdmin": "Quitar ADMIN",
+        "saveRole": "Guardar rol"
+      }
+    },
+    "pages": {
+      "title": "Pages (FO)",
+      "save": "Save",
+      "status": {
+        "ACTIVE": "Active",
+        "UNDER_CONSTRUCTION": "Under construction",
+        "INACTIVE": "Inactive"
+      }
+    },
+    "blogs": {
+      "title": "Blogs",
+      "new": "Nuevo post",
+      "empty": "Aún no hay posts creados.",
+      "edit": "Editar",
+      "status": {
+        "PUBLISHED": "Publicado",
+        "DRAFT": "Borrador"
+      }
+    },
+    "editPost": {
+      "notFound": "Post no encontrado.",
+
+      "title": "Editar post",
+      "meta": {
+        "status": "Estado: {status}",
+        "publishedAt": " · Publicado: {date}"
+      },
+      "errors": {
+        "reviewFields": "Revisa los campos."
+      },
+      "fields": {
+        "title": "Título",
+        "slug": "Slug",
+        "excerpt": "Extracto",
+        "content": "Contenido",
+        "coverImage": "Cover image URL",
+        "status": "Estado"
+      },
+      "status": {
+        "DRAFT": "Borrador",
+        "PUBLISHED": "Publicado"
+      },
+      "actions": {
+        "save": "Guardar",
+        "saving": "Guardando...",
+        "delete": "Borrar"
+      }
+    },
+
+    "newPost": {
+      "title": "Nuevo post",
+      "errors": {
+        "reviewFields": "Revisa los campos."
+      },
+      "fields": {
+        "title": "Título",
+        "slug": "Slug (opcional, si lo dejas vacío se genera)",
+        "excerpt": "Extracto",
+        "content": "Contenido",
+        "coverImage": "Cover image URL (opcional)",
+        "status": "Estado"
+      },
+      "status": {
+        "DRAFT": "Borrador",
+        "PUBLISHED": "Publicado"
+      },
+      "submit": {
+        "idle": "Crear",
+        "pending": "Creando..."
+      }
+    }
+  },
+
+  "legalCookies": {
+    "title": "Política de Cookies",
+    "p1": "Arrow Apps utiliza únicamente cookies técnicas necesarias para el funcionamiento de la plataforma y la autenticación de usuarios.",
+    "p2": "No se utilizan cookies de análisis, publicidad ni seguimiento de terceros.",
+    "p3": "Por este motivo, no es necesario mostrar banner de cookies conforme a la normativa vigente."
+  },
+
+  "legalNotice": {
+    "title": "Aviso Legal",
+    "owner": "<b>Titular:</b> Javier López Villanueva",
+    "email": "<b>Email:</b> {email}",
+    "activity": "<b>Actividad:</b> Desarrollo y mantenimiento de plataforma web personal",
+    "domain": "<b>Dominio:</b> {domain}",
+    "p1": "El presente Aviso Legal regula el acceso, navegación y uso del sitio web Arrow Apps, cuyo titular es Javier López Villanueva.",
+    "p2": "El acceso y uso del sitio implica la aceptación expresa y sin reservas de todas las condiciones aquí reflejadas.",
+    "p3": "El titular no se responsabiliza del uso indebido de la información publicada ni de los daños que pudieran derivarse del uso del sitio web."
+  },
+
+  "legalPrivacy": {
+    "title": "Política de Privacidad",
+    "owner": "<b>Responsable:</b> Javier López Villanueva",
+    "email": "<b>Email:</b> arrow.apps.jlv@gmail.com",
+    "site": "<b>Sitio web:</b> https://arrow-blog.vercel.app",
+
+    "p1": "Esta política describe cómo se recogen, utilizan y protegen los datos personales de los usuarios.",
+
+    "dataTitle": "<b>Datos tratados:</b>",
+    "data1": "Email y nombre (opcional).",
+    "data2": "Contraseña cifrada mediante hash seguro.",
+    "data3": "Datos técnicos mínimos necesarios para seguridad.",
+    "data4": "Cookies técnicas de sesión.",
+
+    "purposeTitle": "<b>Finalidades:</b>",
+    "purpose1": "Gestión de cuentas de usuario.",
+    "purpose2": "Autenticación y acceso a la plataforma.",
+    "purpose3": "Seguridad y prevención de fraude.",
+
+    "p2": "Los datos no se venden ni se ceden a terceros.",
+    "p3": "Puedes ejercer tus derechos RGPD escribiendo a arrow.apps.jlv@gmail.com."
+  },
+
+  "legalTermsAndConditions": {
+    "title": "Términos y Condiciones de Uso",
+    "intro": "Estos Términos y Condiciones establecen las reglas aplicables al uso de Arrow Apps. Al acceder, navegar o registrarte, aceptas cumplirlas.",
+
+    "s1Title": "1. Objeto",
+    "s1Body": "Arrow Apps es una plataforma web personal en desarrollo que permite a usuarios crear una cuenta y utilizar funcionalidades de la aplicación.",
+
+    "s2Title": "2. Obligaciones del usuario",
+    "s2Li1": "Usar la plataforma de forma lícita y de buena fe.",
+    "s2Li2": "No vulnerar derechos de terceros.",
+    "s2Li3": "No intentar romper la seguridad o el funcionamiento del sitio.",
+
+    "s3Title": "3. Contenidos y conducta",
+    "s3Body": "Si el servicio permite publicar o introducir contenidos (p. ej. perfil, bio, etc.), el usuario es responsable de lo que publica y garantiza que dispone de los derechos necesarios.",
+
+    "s4Title": "4. Propiedad intelectual",
+    "s4Body": "El código, diseño y elementos del sitio pertenecen a su titular o se usan bajo licencias que lo permiten. No está permitido copiar o explotar el sitio con fines comerciales sin autorización.",
+
+    "s5Title": "5. Terminación",
+    "s5Body": "El usuario puede dejar de usar el servicio en cualquier momento. El titular puede suspender o cerrar cuentas ante incumplimientos, por seguridad o por mantenimiento del servicio.",
+
+    "s6Title": "6. Enlaces a terceros",
+    "s6Body": "El sitio puede incluir enlaces a terceros. El titular no controla dichos sitios ni asume responsabilidad por su contenido o políticas.",
+
+    "s7Title": "7. Modificaciones",
+    "s7Body": "El titular puede modificar estos términos para adaptarlos a cambios del servicio o requisitos legales. La versión vigente estará disponible en esta página.",
+
+    "s8Title": "8. Legislación aplicable",
+    "s8Body": "Estos términos se rigen por la legislación española. En caso de disputa, las partes se someterán a los juzgados y tribunales que correspondan conforme a la normativa aplicable."
+  },
+
+  "legalUseTerms": {
+    "title": "Términos de uso",
+    "intro": "Estos Términos de Uso regulan el acceso y uso de Arrow Apps. Al acceder y utilizar el sitio, aceptas estas condiciones.",
+
+    "s1Title": "1. Acceso al servicio",
+    "s1Body": "El acceso general al sitio es gratuito. Algunas funcionalidades pueden requerir registro e inicio de sesión. El titular podrá modificar, suspender o interrumpir el servicio total o parcialmente por motivos técnicos, de seguridad o mantenimiento.",
+
+    "s2Title": "2. Registro y cuenta",
+    "s2Li1": "Eres responsable de la veracidad de los datos facilitados y de mantenerlos actualizados.",
+    "s2Li2": "Eres responsable de custodiar tus credenciales y de cualquier uso que se haga desde tu cuenta.",
+    "s2Li3": "Si detectas un uso no autorizado, debes comunicarlo lo antes posible a <b>{email}</b>.",
+
+    "s3Title": "3. Uso permitido",
+    "s3Intro": "Te comprometes a utilizar el sitio de forma lícita y conforme a:",
+    "s3Li1": "La legislación aplicable y estos términos.",
+    "s3Li2": "La buena fe y el respeto a terceros.",
+
+    "s4Title": "4. Uso prohibido",
+    "s4Intro": "Queda prohibido, entre otros:",
+    "s4Li1": "Acceder o intentar acceder a áreas o datos sin autorización.",
+    "s4Li2": "Introducir malware, realizar ataques, scraping abusivo o acciones que degraden el servicio.",
+    "s4Li3": "Usar el sitio para fines ilícitos o que vulneren derechos de terceros.",
+    "s4Li4": "Suplantar identidades o crear cuentas con información falsa de forma maliciosa.",
+
+    "s5Title": "5. Contenidos del usuario",
+    "s5Body": "Si el sitio permite introducir información (p. ej., perfil, nombre, bio u otros datos), el usuario declara tener derecho a usarla y será el único responsable de lo que publique o facilite.",
+
+    "s6Title": "6. Propiedad intelectual",
+    "s6Body": "Los contenidos, diseño, código y elementos del sitio pertenecen a su titular o se utilizan bajo licencia. No se permite su reproducción o explotación con fines comerciales sin autorización.",
+
+    "s7Title": "7. Exclusión de garantías y responsabilidad",
+    "s7Body": "El servicio se ofrece “tal cual”. El titular no garantiza la disponibilidad ininterrumpida del sitio ni la ausencia de errores, aunque se adoptarán medidas razonables para mantener su funcionamiento y seguridad.",
+
+    "s8Title": "8. Suspensión o terminación",
+    "s8Body": "El titular podrá suspender o cancelar el acceso a usuarios que incumplan estos términos o supongan un riesgo para la seguridad o integridad del servicio.",
+
+    "s9Title": "9. Enlaces a terceros",
+    "s9Body": "El sitio puede contener enlaces a páginas de terceros. El titular no controla ni se responsabiliza de dichos sitios, sus contenidos o sus políticas.",
+
+    "s10Title": "10. Modificaciones",
+    "s10Body": "Estos Términos de Uso pueden actualizarse para reflejar cambios del servicio o requisitos legales. La versión vigente estará disponible en esta página.",
+
+    "s11Title": "11. Legislación aplicable",
+    "s11Body": "Estos términos se rigen por la legislación española. En caso de disputa, las partes se someterán a los juzgados y tribunales que correspondan conforme a la normativa aplicable.",
+
+    "contact": "<b>Contacto:</b> Para consultas, escribe a <b>{email}</b>."
+  },
+  "underConstruction": {
+    "title": "En construcción",
+    "subtitle": "Estamos trabajando para traerte algo increíble. Vuelve pronto 🚀",
+    "back": "Volver al inicio"
+  },
+  "games": {
+    "title": "Juegos",
+    "description": "Elige juego",
+    "languages": {
+      "title": "Idiomas",
+      "description": "Juegos para aprender idiomas.",
+
+      "languageStep": "1) Idioma",
+      "gameStep": "2) Juego",
+      "en": "Ingles",
+      "es": "Español",
+      "languageSelected": "Seleccionado: ",
+      "selectLanguage": "Selecciona un idioma",
+
+      "animals": {
+        "title": "Animales",
+        "description": "Aprende los nombres de los animales en distintos idiomas.",
+        "write": {
+          "title": "Esbribe la palabra correcta",
+          "description": "Escribe la traducción correcta según el idioma elegido.",
+          "available": "Disponible"
+        },
+
+        "chooseImage": {
+          "title": "Selecciona la imagen correcta",
+          "description": "Escoge la imagen correcta segun el idioma elegido.",
+          "prompt": "Selecciona:",
+          "available": "Disponible"
+        }
+      }
+    }
+  },
+
+  "animalGame": {
+    "titleChooseImage": "Selecciona la imagen correcta",
+    "chooseImage": { "prompt": "Selecciona:" },
+    "title": "Animales",
+    "languageChosen": "Idioma elegido: ",
+    "writeIn": "Escribe en: ",
+    "writeWord": "Escribe la palabra en ",
+    "answerLabel": "Respuesta: ",
+    "helperIdle": "Pulsa Enter o el botón Comprobar",
+    "helperCorrect": "✅ Correcto",
+    "helperWrong": "❌ No es correcto",
+    "check": "Comprobar",
+    "skip": "Saltar",
+    "correctAnswer": "Respuesta correcta: ",
+
+    "finish": {
+      "title": "¡Juego terminado!",
+      "correct": "Aciertos",
+      "wrong": "Fallos",
+      "accuracy": "Porcentaje de acierto",
+      "playAgain": "Jugar otra vez",
+      "back": "Volver a Games",
+
+      "feedback": {
+        "high": "¡Muy bien! Sigue así.",
+        "medium": "¡Bien! Un poco más y lo clavas.",
+        "low": "No pasa nada: repite y verás cómo sube el porcentaje."
+      }
+    },
+    "difficulty": {
+      "label": "Dificultad",
+      "easy": "Fácil",
+      "normal": "Normal",
+      "hard": "Difícil"
+    },
+    "speak": "Escuchar",
+    "speechNotSupported": "Tu navegador no soporta audio por voz"
+  }
+}
