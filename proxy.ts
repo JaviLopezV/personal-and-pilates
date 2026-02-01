@@ -45,9 +45,12 @@ export default async function proxy(req: NextRequest) {
     }
 
     // BO solo ADMIN
-    if (isBO && (token as any)?.role !== "ADMIN") {
+    const role = (token as any)?.role;
+    const isAdmin = role === "ADMIN" || role === "SUPERADMIN";
+
+    if (isBO && !isAdmin) {
       const url = req.nextUrl.clone();
-      url.pathname = `/${locale}/auth`; // o `/${locale}` si prefieres
+      url.pathname = `/${locale}/auth`; // o `/${locale}`
       url.search = "";
       return NextResponse.redirect(url);
     }
