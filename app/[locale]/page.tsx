@@ -18,11 +18,11 @@ export default async function Home({ params }: Props) {
   const role = (session.user as any)?.role;
 
   // Ajusta estas rutas a las reales de tu proyecto
-  if (role === "ADMIN") {
-    redirect(`/bo/classes`);
+  if (role === "ADMIN" || role === "SUPERADMIN") {
+    redirect(`/${locale}/bo/classes`);
   }
 
   // CLIENT (o cualquier otro caso)
-  redirect(`/under-construction`);
+  redirect(`/${locale}/home`);
   // redirect(`/home`);
 }
