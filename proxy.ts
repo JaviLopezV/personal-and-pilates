@@ -47,6 +47,8 @@ export default async function proxy(req: NextRequest) {
     // BO solo ADMIN
     const role = (token as any)?.role;
     const isAdmin = role === "ADMIN" || role === "SUPERADMIN";
+    console.log("Role desde middleware:", role);
+    console.log("Role desde middleware:", isAdmin);
 
     if (isBO && !isAdmin) {
       const url = req.nextUrl.clone();

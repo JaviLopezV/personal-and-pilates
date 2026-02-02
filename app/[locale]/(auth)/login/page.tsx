@@ -63,6 +63,7 @@ export default function LoginPage() {
       const role = (session?.user as any)?.role;
 
       hideLegalFooter();
+      console.log("Redirigiendo según role:", role);
       router.push(
         role === "ADMIN" || role === "SUPERADMIN"
           ? `/${locale}/bo/classes`
