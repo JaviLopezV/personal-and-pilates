@@ -21,6 +21,7 @@ model User {
   deleted   Boolean   @default(false)
   deletedAt DateTime?
   disabled  Boolean  @default(false)
+availableClasses Int @default(0)
 
   emailVerifiedAt DateTime?
   verifyTokenHash String?

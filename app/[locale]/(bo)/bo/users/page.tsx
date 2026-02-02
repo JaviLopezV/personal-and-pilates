@@ -1,9 +1,10 @@
-// app/[locale]/bo/users/page.tsx
+"use server";
 import { prisma } from "@/app/lib/prisma";
 import { authOptions } from "@/app/lib/auth";
 import { getServerSession } from "next-auth";
 import { getTranslations } from "next-intl/server";
-import { Box, Paper, Stack, Typography } from "@mui/material";
+import { Link } from "@/i18n/navigation";
+import { Box, Button, Paper, Stack, Typography } from "@mui/material";
 import RoleFilters from "./RoleFilters";
 import UserRow from "./UserRow";
 
@@ -38,6 +39,7 @@ type BoUser = {
   name: string | null;
   role: Role;
   disabled: boolean;
+  availableClasses: number;
 };
 
 export default async function BoUsersPage({ params, searchParams }: Props) {
@@ -60,16 +62,28 @@ export default async function BoUsersPage({ params, searchParams }: Props) {
       name: true,
       role: true,
       disabled: true,
+      availableClasses: true,
     },
   });
 
   return (
     <Stack spacing={3}>
-      <Stack spacing={1}>
-        <Typography variant="h4" fontWeight={800}>
-          {t("title")}
-        </Typography>
-        <Typography color="text.secondary">{t("subtitle")}</Typography>
+      <Stack
+        spacing={1}
+        direction={{ xs: "column", sm: "row" }}
+        alignItems={{ xs: "flex-start", sm: "center" }}
+        justifyContent="space-between"
+      >
+        <Box>
+          <Typography variant="h4" fontWeight={800}>
+            {t("title")}
+          </Typography>
+          <Typography color="text.secondary">{t("subtitle")}</Typography>
+        </Box>
+
+        <Link href="/bo/users/new" style={{ textDecoration: "none" }}>
+          <Button variant="contained">{t("actions.create")}</Button>
+        </Link>
       </Stack>
 
       <RoleFilters
@@ -104,6 +118,7 @@ export default async function BoUsersPage({ params, searchParams }: Props) {
                   name: u.name,
                   role: u.role as Role,
                   disabled: u.disabled,
+                  availableClasses: u.availableClasses,
                 }}
               />
             ))}

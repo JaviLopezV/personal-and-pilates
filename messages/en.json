@@ -230,6 +230,7 @@
       "subtitle": "Manage roles and login access (disabled accounts).",
       "empty": "No users for this filter.",
       "noName": "No name",
+      "availableClassesLabel": "Available classes: {n}",
       "selfProtected": "You can't apply changes to yourself.",
       "filters": {
         "roleLabel": "Filter by role",
@@ -245,6 +246,8 @@
         "disabled": "Disabled"
       },
       "actions": {
+        "create": "Create user",
+        "edit": "Edit",
         "disable": "Disable",
         "enable": "Enable",
         "makeAdmin": "Make ADMIN",
@@ -252,6 +255,60 @@
         "saveRole": "Save role"
       }
     },
+
+    "boNewUser": {
+      "title": "Create user",
+      "errors": { "reviewFields": "Please review the fields." },
+      "fields": {
+        "email": "Email",
+        "name": "Name",
+        "role": "Role",
+        "disabled": "Access",
+        "availableClasses": "Available classes",
+        "password": "Password"
+      },
+      "roles": {
+        "SUPERADMIN": "SUPERADMIN",
+        "ADMIN": "ADMIN",
+        "CLIENT": "CLIENT"
+      },
+      "status": {
+        "enabled": "Enabled",
+        "disabled": "Disabled"
+      },
+      "submit": {
+        "idle": "Create",
+        "pending": "Creating..."
+      }
+    },
+
+    "boEditUser": {
+      "title": "Edit user",
+      "errors": { "reviewFields": "Please review the fields." },
+      "fields": {
+        "email": "Email",
+        "name": "Name",
+        "role": "Role",
+        "disabled": "Access",
+        "availableClasses": "Available classes",
+        "passwordOptional": "New password (optional)",
+        "passwordOptionalPlaceholder": "Leave blank to keep current"
+      },
+      "roles": {
+        "SUPERADMIN": "SUPERADMIN",
+        "ADMIN": "ADMIN",
+        "CLIENT": "CLIENT"
+      },
+      "status": {
+        "enabled": "Enabled",
+        "disabled": "Disabled"
+      },
+      "submit": {
+        "idle": "Save changes",
+        "pending": "Saving..."
+      }
+    },
+
     "pages": {
       "title": "Páginas (FO)",
       "save": "Guardar",

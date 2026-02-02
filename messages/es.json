@@ -233,6 +233,7 @@
       "subtitle": "Gestiona roles y acceso al login (cuentas deshabilitadas).",
       "empty": "No hay usuarios para este filtro.",
       "noName": "Sin nombre",
+      "availableClassesLabel": "Clases disponibles: {n}",
       "selfProtected": "No puedes aplicarte cambios a ti mismo.",
       "filters": {
         "roleLabel": "Filtrar por rol",
@@ -248,11 +249,66 @@
         "disabled": "Deshabilitada"
       },
       "actions": {
+        "create": "Crear usuario",
+        "edit": "Editar",
         "disable": "Deshabilitar",
         "enable": "Habilitar",
         "makeAdmin": "Hacer ADMIN",
         "removeAdmin": "Quitar ADMIN",
         "saveRole": "Guardar rol"
+      }
+    },
+
+    "boNewUser": {
+      "title": "Crear usuario",
+      "errors": { "reviewFields": "Revisa los campos." },
+      "fields": {
+        "email": "Email",
+        "name": "Nombre",
+        "role": "Rol",
+        "disabled": "Acceso",
+        "availableClasses": "Clases disponibles",
+        "password": "Contraseña"
+      },
+      "roles": {
+        "SUPERADMIN": "SUPERADMIN",
+        "ADMIN": "ADMIN",
+        "CLIENT": "CLIENT"
+      },
+      "status": {
+        "enabled": "Activa",
+        "disabled": "Deshabilitada"
+      },
+      "submit": {
+        "idle": "Crear",
+        "pending": "Creando…"
+      }
+    },
+
+    "boEditUser": {
+      "title": "Editar usuario",
+      "errors": { "reviewFields": "Revisa los campos." },
+      "fields": {
+        "email": "Email",
+        "name": "Nombre",
+        "role": "Rol",
+        "disabled": "Acceso",
+        "availableClasses": "Clases disponibles",
+        "passwordOptional": "Nueva contraseña (opcional)",
+        "passwordOptionalPlaceholder": "Dejar en blanco para no cambiar"
+      },
+      "roles": {
+        "SUPERADMIN": "SUPERADMIN",
+        "ADMIN": "ADMIN",
+        "CLIENT": "CLIENT"
+      },
+      "status": {
+        "enabled": "Activa",
+        "disabled": "Deshabilitada"
+      },
+      "submit": {
+        "idle": "Guardar cambios",
+        "pending": "Guardando…"
       }
     },
     "pages": {

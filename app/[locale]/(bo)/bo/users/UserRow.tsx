@@ -1,4 +1,5 @@
 // app/[locale]/bo/users/UserRow.tsx
+import Link from "next/link";
 import { Box, Button, Chip, MenuItem, Select, Typography } from "@mui/material";
 import type { getTranslations } from "next-intl/server";
 import { setUserDisabled, setUserRole } from "./actions";
@@ -10,6 +11,7 @@ type User = {
   name: string | null;
   role: Role;
   disabled: boolean;
+  availableClasses: number;
 };
 
 type Props = {
@@ -51,7 +53,10 @@ export default function UserRow({
     <Box
       sx={{
         display: "grid",
-        gridTemplateColumns: { xs: "1fr", md: "1.2fr 0.9fr 140px 180px 1.2fr" },
+        gridTemplateColumns: {
+          xs: "1fr",
+          md: "1.2fr 0.9fr 120px 140px 180px 1.2fr 130px",
+        },
         px: 3,
         py: 2,
         borderBottom: "1px solid",
@@ -64,6 +69,9 @@ export default function UserRow({
         <Typography fontWeight={700}>{user.name || t("noName")}</Typography>
         <Typography variant="body2" color="text.secondary">
           {user.email}
+        </Typography>
+        <Typography variant="caption" color="text.secondary">
+          {t("availableClassesLabel", { n: user.availableClasses })}
         </Typography>
       </Box>
 
@@ -145,6 +153,15 @@ export default function UserRow({
             </Button>
           </form>
         )}
+      </Box>
+
+      <Box sx={{ justifySelf: { xs: "start", md: "end" } }}>
+        <Link
+          href={`/bo/users/${user.id}/edit`}
+          style={{ textDecoration: "none" }}
+        >
+          <Button size="small">{t("actions.edit")}</Button>
+        </Link>
       </Box>
     </Box>
   );
