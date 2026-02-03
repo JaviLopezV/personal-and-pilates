@@ -98,13 +98,27 @@ export default async function BoUsersPage({ params, searchParams }: Props) {
         }}
       />
 
-      <Paper variant="outlined">
+      <Paper variant="outlined" sx={{ overflow: "hidden" }}>
         {users.length === 0 ? (
           <Box p={3}>
             <Typography color="text.secondary">{t("empty")}</Typography>
           </Box>
         ) : (
           <Box>
+            <Box
+              sx={{
+                px: { xs: 2, md: 3 },
+                py: 1.5,
+                bgcolor: "action.hover",
+                borderBottom: "1px solid",
+                borderColor: "divider",
+              }}
+            >
+              <Typography variant="subtitle2" fontWeight={800}>
+                {users.length} {users.length === 1 ? "usuario" : "usuarios"}
+              </Typography>
+            </Box>
+
             {users.map((u) => (
               <UserRow
                 key={u.id}

@@ -1,6 +1,20 @@
-// app/[locale]/bo/users/UserRow.tsx
+// app/[locale]/(bo)/bo/users/UserRow.tsx
 import Link from "next/link";
-import { Box, Button, Chip, MenuItem, Select, Typography } from "@mui/material";
+import {
+  Avatar,
+  Box,
+  Button,
+  Chip,
+  Divider,
+  MenuItem,
+  Select,
+  Stack,
+  Typography,
+} from "@mui/material";
+import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
+import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
+import BlockOutlinedIcon from "@mui/icons-material/BlockOutlined";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import type { getTranslations } from "next-intl/server";
 import { setUserDisabled, setUserRole } from "./actions";
 import type { Role } from "./page";
@@ -38,13 +52,15 @@ function roleLabelKey(role: Role) {
   return `roles.${role}` as const;
 }
 
-export default function UserRow({
-  locale,
-  t,
-  actorRole,
-  actorId,
-  user,
-}: Props) {
+function initials(name: string | null, email: string) {
+  const base = (name || email).trim();
+  const parts = base.split(/\s+/).filter(Boolean);
+  const a = (parts[0]?.[0] ?? email[0] ?? "?").toUpperCase();
+  const b = (parts[1]?.[0] ?? parts[0]?.[1] ?? "").toUpperCase();
+  return (a + b).slice(0, 2);
+}
+
+export default function UserRow({ locale, t, actorRole, actorId, user }: Props) {
   const isSelf = user.id === actorId;
   const canDisable = canDisableTarget(actorRole, user.role) && !isSelf;
   const canRoleChange = canEditRole(actorRole, user.role) && !isSelf;
@@ -52,117 +68,126 @@ export default function UserRow({
   return (
     <Box
       sx={{
-        display: "grid",
-        gridTemplateColumns: {
-          xs: "1fr",
-          md: "1.2fr 0.9fr 120px 140px 180px 1.2fr 130px",
-        },
-        px: 3,
+        px: { xs: 2, md: 3 },
         py: 2,
-        borderBottom: "1px solid",
-        borderColor: "divider",
-        alignItems: { xs: "start", md: "center" },
-        gap: 2,
       }}
     >
-      <Box>
-        <Typography fontWeight={700}>{user.name || t("noName")}</Typography>
-        <Typography variant="body2" color="text.secondary">
-          {user.email}
-        </Typography>
-        <Typography variant="caption" color="text.secondary">
-          {t("availableClassesLabel", { n: user.availableClasses })}
-        </Typography>
-      </Box>
+      <Stack
+        direction={{ xs: "column", md: "row" }}
+        spacing={{ xs: 1.5, md: 2 }}
+        alignItems={{ xs: "stretch", md: "center" }}
+        justifyContent="space-between"
+      >
+        {/* Left: identity */}
+        <Stack direction="row" spacing={1.5} alignItems="center" minWidth={0}>
+          <Avatar sx={{ width: 40, height: 40, fontWeight: 800 }}>
+            {initials(user.name, user.email)}
+          </Avatar>
 
-      <Box>
-        <Chip
-          size="small"
-          label={t(roleLabelKey(user.role) as any)}
-          variant="outlined"
-        />
-      </Box>
-
-      <Box>
-        <Chip
-          size="small"
-          label={user.disabled ? t("status.disabled") : t("status.enabled")}
-          color={user.disabled ? "warning" : "success"}
-          variant="outlined"
-        />
-      </Box>
-
-      <Box>
-        <form
-          action={setUserDisabled.bind(null, locale, user.id)}
-          style={{ display: "inline-flex", gap: 8, alignItems: "center" }}
-        >
-          <input
-            type="hidden"
-            name="disabled"
-            value={user.disabled ? "false" : "true"}
-          />
-          <Button size="small" type="submit" disabled={!canDisable}>
-            {user.disabled ? t("actions.enable") : t("actions.disable")}
-          </Button>
-
-          {isSelf && (
-            <Typography variant="caption" color="text.secondary">
-              {t("selfProtected")}
+          <Box minWidth={0}>
+            <Typography fontWeight={800} noWrap>
+              {user.name || t("noName")}
             </Typography>
-          )}
-        </form>
-      </Box>
+            <Typography variant="body2" color="text.secondary" noWrap>
+              {user.email}
+            </Typography>
+            <Typography variant="caption" color="text.secondary">
+              {t("availableClassesLabel", { n: user.availableClasses })}
+            </Typography>
+          </Box>
+        </Stack>
 
-      <Box sx={{ justifySelf: { xs: "start", md: "end" } }}>
-        {actorRole === "SUPERADMIN" ? (
-          <form
-            action={setUserRole.bind(null, locale, user.id)}
-            style={{ display: "inline-flex", gap: 8, alignItems: "center" }}
-          >
-            <Select
-              name="role"
-              defaultValue={user.role}
-              size="small"
-              disabled={isSelf}
-              sx={{ minWidth: 160 }}
-            >
-              <MenuItem value="SUPERADMIN">{t("roles.SUPERADMIN")}</MenuItem>
-              <MenuItem value="ADMIN">{t("roles.ADMIN")}</MenuItem>
-              <MenuItem value="CLIENT">{t("roles.CLIENT")}</MenuItem>
-            </Select>
-
-            <Button size="small" type="submit" disabled={isSelf}>
-              {t("actions.saveRole")}
-            </Button>
-          </form>
-        ) : (
-          <form
-            action={setUserRole.bind(null, locale, user.id)}
-            style={{ display: "inline-flex", gap: 8 }}
-          >
-            <input
-              type="hidden"
-              name="role"
-              value={user.role === "ADMIN" ? "CLIENT" : "ADMIN"}
-            />
-            <Button size="small" type="submit" disabled={!canRoleChange}>
-              {user.role === "ADMIN"
-                ? t("actions.removeAdmin")
-                : t("actions.makeAdmin")}
-            </Button>
-          </form>
-        )}
-      </Box>
-
-      <Box sx={{ justifySelf: { xs: "start", md: "end" } }}>
-        <Link
-          href={`/bo/users/${user.id}/edit`}
-          style={{ textDecoration: "none" }}
+        {/* Middle: meta */}
+        <Stack
+          direction="row"
+          spacing={1}
+          alignItems="center"
+          flexWrap="wrap"
+          justifyContent={{ xs: "flex-start", md: "center" }}
+          sx={{ minWidth: { md: 260 } }}
         >
-          <Button size="small">{t("actions.edit")}</Button>
-        </Link>
-      </Box>
+          <Chip size="small" label={t(roleLabelKey(user.role) as any)} variant="outlined" />
+          <Chip
+            size="small"
+            label={user.disabled ? t("status.disabled") : t("status.enabled")}
+            color={user.disabled ? "warning" : "success"}
+            variant="outlined"
+            icon={user.disabled ? <BlockOutlinedIcon /> : <CheckCircleOutlineIcon />}
+          />
+          {isSelf && (
+            <Chip size="small" label={t("selfProtected")} variant="outlined" />
+          )}
+        </Stack>
+
+        {/* Right: actions */}
+        <Stack
+          direction={{ xs: "column", sm: "row" }}
+          spacing={1}
+          alignItems={{ xs: "stretch", sm: "center" }}
+          justifyContent="flex-end"
+        >
+          <form action={setUserDisabled.bind(null, locale, user.id)}>
+            <input type="hidden" name="disabled" value={user.disabled ? "false" : "true"} />
+            <Button
+              size="small"
+              type="submit"
+              disabled={!canDisable}
+              variant="outlined"
+              startIcon={user.disabled ? <CheckCircleOutlineIcon /> : <BlockOutlinedIcon />}
+            >
+              {user.disabled ? t("actions.enable") : t("actions.disable")}
+            </Button>
+          </form>
+
+          {actorRole === "SUPERADMIN" ? (
+            <form
+              action={setUserRole.bind(null, locale, user.id)}
+              style={{ display: "inline-flex", gap: 8, alignItems: "center" }}
+            >
+              <Select
+                name="role"
+                defaultValue={user.role}
+                size="small"
+                disabled={isSelf}
+                sx={{ minWidth: 170 }}
+              >
+                <MenuItem value="SUPERADMIN">{t("roles.SUPERADMIN")}</MenuItem>
+                <MenuItem value="ADMIN">{t("roles.ADMIN")}</MenuItem>
+                <MenuItem value="CLIENT">{t("roles.CLIENT")}</MenuItem>
+              </Select>
+
+              <Button size="small" type="submit" disabled={isSelf} variant="contained">
+                {t("actions.saveRole")}
+              </Button>
+            </form>
+          ) : (
+            <form action={setUserRole.bind(null, locale, user.id)}>
+              <input
+                type="hidden"
+                name="role"
+                value={user.role === "ADMIN" ? "CLIENT" : "ADMIN"}
+              />
+              <Button
+                size="small"
+                type="submit"
+                disabled={!canRoleChange}
+                variant="outlined"
+                startIcon={<AdminPanelSettingsOutlinedIcon />}
+              >
+                {user.role === "ADMIN" ? t("actions.removeAdmin") : t("actions.makeAdmin")}
+              </Button>
+            </form>
+          )}
+
+          <Link href={`/bo/users/${user.id}/edit`} style={{ textDecoration: "none" }}>
+            <Button size="small" variant="text" startIcon={<EditOutlinedIcon />}>
+              {t("actions.edit")}
+            </Button>
+          </Link>
+        </Stack>
+      </Stack>
+
+      <Divider sx={{ mt: 2 }} />
     </Box>
   );
 }

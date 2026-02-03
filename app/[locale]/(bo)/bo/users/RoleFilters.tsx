@@ -1,6 +1,8 @@
 // app/[locale]/(bo)/bo/users/RoleFilters.tsx
-import Link from "next/link";
-import { Box, Button, Paper, Typography } from "@mui/material";
+"use client";
+
+import { useRouter } from "next/navigation";
+import { Box, Paper, Tab, Tabs, Typography } from "@mui/material";
 import type { RoleFilter } from "./page";
 
 type Props = {
@@ -16,79 +18,32 @@ type Props = {
   selectedRole: RoleFilter;
 };
 
-function hrefFor(locale: string, qs?: string) {
+function hrefFor(locale: string, role: RoleFilter) {
   const base = `/${locale}/bo/users`;
-  return qs ? `${base}?role=${qs}` : base;
+  return role === "ALL" ? base : `${base}?role=${role}`;
 }
 
 export default function RoleFilters({ locale, labels, selectedRole }: Props) {
+  const router = useRouter();
+
   return (
-    <Paper variant="outlined">
-      <Box
-        sx={{
-          p: 2,
-          display: "flex",
-          gap: 1,
-          alignItems: "center",
-          flexWrap: "wrap",
-        }}
-      >
-        <Typography fontWeight={700} sx={{ mr: 1 }}>
-          {labels.roleLabel}:
-        </Typography>
-
-        <Link
-          href={hrefFor(locale)}
-          prefetch={false}
-          style={{ textDecoration: "none" }}
-        >
-          <Button
-            size="small"
-            variant={selectedRole === "ALL" ? "contained" : "text"}
-          >
-            {labels.allRoles}
-          </Button>
-        </Link>
-
-        <Link
-          href={hrefFor(locale, "SUPERADMIN")}
-          prefetch={false}
-          style={{ textDecoration: "none" }}
-        >
-          <Button
-            size="small"
-            variant={selectedRole === "SUPERADMIN" ? "contained" : "text"}
-          >
-            {labels.superadmin}
-          </Button>
-        </Link>
-
-        <Link
-          href={hrefFor(locale, "ADMIN")}
-          prefetch={false}
-          style={{ textDecoration: "none" }}
-        >
-          <Button
-            size="small"
-            variant={selectedRole === "ADMIN" ? "contained" : "text"}
-          >
-            {labels.admin}
-          </Button>
-        </Link>
-
-        <Link
-          href={hrefFor(locale, "CLIENT")}
-          prefetch={false}
-          style={{ textDecoration: "none" }}
-        >
-          <Button
-            size="small"
-            variant={selectedRole === "CLIENT" ? "contained" : "text"}
-          >
-            {labels.client}
-          </Button>
-        </Link>
+    <Paper variant="outlined" sx={{ overflow: "hidden" }}>
+      <Box sx={{ p: 2, pb: 1 }}>
+        <Typography fontWeight={800}>{labels.roleLabel}</Typography>
       </Box>
+
+      <Tabs
+        value={selectedRole}
+        onChange={(_, value) => router.push(hrefFor(locale, value as RoleFilter))}
+        variant="scrollable"
+        scrollButtons="auto"
+        sx={{ px: 1 }}
+      >
+        <Tab value="ALL" label={labels.allRoles} />
+        <Tab value="SUPERADMIN" label={labels.superadmin} />
+        <Tab value="ADMIN" label={labels.admin} />
+        <Tab value="CLIENT" label={labels.client} />
+      </Tabs>
     </Paper>
   );
 }

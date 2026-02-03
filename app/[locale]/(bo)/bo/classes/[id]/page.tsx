@@ -3,6 +3,7 @@ import { prisma } from "@/app/lib/prisma";
 import { Box, Button, Divider, Paper, Stack, Typography } from "@mui/material";
 import { Link } from "@/i18n/navigation";
 import BookingsAdminClient from "./BookingsAdminClient";
+import ViewClassHeader from "./ViewClassHeader";
 
 type Params = { params: Promise<{ id: string }> };
 
@@ -52,29 +53,7 @@ export default async function BoClassDetailPage({ params }: Params) {
 
   return (
     <Stack spacing={3} maxWidth={1000}>
-      <Stack direction="row" justifyContent="space-between" alignItems="center">
-        <Box>
-          <Typography variant="h4" fontWeight={800}>
-            {cs.title}{" "}
-            <Typography component="span" color="text.secondary">
-              · {cs.type}
-            </Typography>
-          </Typography>
-          <Typography color="text.secondary">
-            {fmt(cs.startsAt)} – {fmt(cs.endsAt)} · Aforo: {cs.capacity} ·
-            Inscritos: {cs.bookings.length}
-          </Typography>
-        </Box>
-
-        <Stack direction="row" spacing={1}>
-          <Link
-            href={`/bo/classes/${cs.id}/edit`}
-            style={{ textDecoration: "none" }}
-          >
-            <Button variant="outlined">Editar</Button>
-          </Link>
-        </Stack>
-      </Stack>
+      <ViewClassHeader cs={cs} />
 
       <Paper variant="outlined">
         <Box p={3}>

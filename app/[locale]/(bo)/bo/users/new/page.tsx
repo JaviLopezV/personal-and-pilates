@@ -7,6 +7,7 @@ import {
   Alert,
   Box,
   Button,
+  IconButton,
   MenuItem,
   Paper,
   Select,
@@ -16,6 +17,7 @@ import {
 } from "@mui/material";
 import { useTranslations } from "next-intl";
 import { createUser, type UserActionState } from "../actions";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const initialState: UserActionState = { ok: true };
 
@@ -38,11 +40,18 @@ export default function NewUserPage() {
     }
   }, [state, router, locale]);
 
+  const goBack = () => router.push(`/${locale}/bo/users`);
+
   return (
     <Stack spacing={3} maxWidth={900}>
-      <Typography variant="h4" fontWeight={800}>
-        {t("title")}
-      </Typography>
+      <Stack direction="row" alignItems="center" spacing={1}>
+        <IconButton onClick={goBack} aria-label={"back"}>
+          <ArrowBackIcon />
+        </IconButton>
+        <Typography variant="h5" fontWeight={800}>
+          {t("title")}
+        </Typography>
+      </Stack>
 
       <Paper variant="outlined" sx={{ p: 3 }}>
         <Box component="form" action={formAction}>
@@ -100,7 +109,9 @@ export default function NewUserPage() {
               defaultValue={0}
               inputProps={{ min: 0 }}
               required
-              error={state.ok === false && !!state.fieldErrors?.availableClasses}
+              error={
+                state.ok === false && !!state.fieldErrors?.availableClasses
+              }
               helperText={
                 state.ok === false
                   ? state.fieldErrors?.availableClasses?.[0]

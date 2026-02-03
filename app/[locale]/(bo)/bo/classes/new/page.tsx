@@ -6,6 +6,7 @@ import {
   Alert,
   Box,
   Button,
+  IconButton,
   Paper,
   Stack,
   TextField,
@@ -13,6 +14,7 @@ import {
 } from "@mui/material";
 import { createClassSession, type ClassActionState } from "../actions";
 import { useTranslations } from "next-intl";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const initialState: ClassActionState = { ok: true };
 
@@ -46,12 +48,18 @@ export default function NewClassPage() {
     }
   }, [state, router, locale]);
 
+  const goBack = () => router.push(`/${locale}/bo/classes`);
+
   return (
     <Stack spacing={3} maxWidth={900}>
-      <Typography variant="h4" fontWeight={800}>
-        {t("title")}
-      </Typography>
-
+      <Stack direction="row" alignItems="center" spacing={1}>
+        <IconButton onClick={goBack} aria-label={"back"}>
+          <ArrowBackIcon />
+        </IconButton>
+        <Typography variant="h5" fontWeight={800}>
+          {t("title")}
+        </Typography>
+      </Stack>
       <Paper variant="outlined" sx={{ p: 3 }}>
         <Box component="form" action={formAction}>
           <Stack spacing={2}>

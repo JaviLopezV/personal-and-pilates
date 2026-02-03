@@ -13,9 +13,11 @@ import {
   Stack,
   TextField,
   Typography,
+  IconButton,
 } from "@mui/material";
 import { useTranslations } from "next-intl";
 import { updateUser, type UserActionState } from "../../actions";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 type Props = {
   locale: string;
@@ -46,11 +48,18 @@ export default function EditUserForm({ locale, user }: Props) {
     }
   }, [state, router]);
 
+  const goBack = () => router.push(`/${locale}/bo/users`);
+
   return (
     <Stack spacing={3} maxWidth={900}>
-      <Typography variant="h4" fontWeight={800}>
-        {t("title")}
-      </Typography>
+      <Stack direction="row" alignItems="center" spacing={1}>
+        <IconButton onClick={goBack} aria-label={"back"}>
+          <ArrowBackIcon />
+        </IconButton>
+        <Typography variant="h5" fontWeight={800}>
+          {t("title")}
+        </Typography>
+      </Stack>
 
       <Paper variant="outlined" sx={{ p: 3 }}>
         <Box component="form" action={formAction}>
@@ -61,11 +70,7 @@ export default function EditUserForm({ locale, user }: Props) {
               </Alert>
             )}
 
-            <TextField
-              label={t("fields.email")}
-              value={user.email}
-              disabled
-            />
+            <TextField label={t("fields.email")} value={user.email} disabled />
 
             <TextField
               name="name"
@@ -109,7 +114,9 @@ export default function EditUserForm({ locale, user }: Props) {
               defaultValue={user.availableClasses}
               inputProps={{ min: 0 }}
               required
-              error={state.ok === false && !!state.fieldErrors?.availableClasses}
+              error={
+                state.ok === false && !!state.fieldErrors?.availableClasses
+              }
               helperText={
                 state.ok === false
                   ? state.fieldErrors?.availableClasses?.[0]
