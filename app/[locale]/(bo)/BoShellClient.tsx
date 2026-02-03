@@ -27,11 +27,12 @@ const drawerWidth = 260;
 
 export default function BoShellClient({
   children,
+  session,
 }: {
   children: React.ReactNode;
+  session: any;
 }) {
   const t = useTranslations("boLayout");
-
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -45,7 +46,7 @@ export default function BoShellClient({
       <Toolbar />
       <Box sx={{ px: 1 }}>
         <Typography sx={{ px: 2, py: 1, fontWeight: 800 }}>
-          {t("drawerTitle")}
+          {session?.user?.name}
         </Typography>
 
         <Divider sx={{ mb: 1 }} />
@@ -131,7 +132,7 @@ export default function BoShellClient({
               </IconButton>
             )}
             <Typography variant="h6" sx={{ fontWeight: 800 }}>
-              {t("topbarTitle")}
+              {t("drawerTitle")}
             </Typography>
           </Toolbar>
         </AppBar>
