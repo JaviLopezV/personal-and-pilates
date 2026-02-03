@@ -199,7 +199,36 @@
       "title": "Clases",
       "new": "Nueva clase",
       "empty": "No hay clases creadas todavía.",
-      "edit": "Editar"
+    "edit": "Editar",
+    "filters": {
+      "total": "Total",
+      "active": "Activas",
+      "past": "Pasadas",
+      "full": "Completas",
+      "reset": "Limpiar filtros",
+
+      "tabActive": "Activas",
+      "tabAll": "Todas",
+      "tabPast": "Pasadas",
+
+      "searchPlaceholder": "Buscar por título o tipo",
+      "type": "Tipo",
+      "capacity": "Aforo",
+      "all": "Todos",
+      "hasSpots": "Con plazas",
+      "isFull": "Completas",
+      "from": "Desde",
+      "to": "Hasta",
+      "sort": "Orden",
+      "sortAsc": "Fecha (próximas primero)",
+      "sortDesc": "Fecha (recientes primero)",
+
+      "statusPast": "Pasada",
+      "statusActive": "Activa",
+      "statusFull": "Completa",
+      "statusSpots": "Plazas",
+      "view": "Ver"
+    }
     },
     "boNewClass": {
       "title": "Nueva clase",
