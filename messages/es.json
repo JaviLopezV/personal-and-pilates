@@ -6,7 +6,6 @@
     "login": "Iniciar sesión",
     "footnote": "Al continuar aceptas nuestras políticas (luego las añadimos)."
   },
-
   "forgotPassword": {
     "title": "¿Olvidaste tu contraseña?",
     "subtitle": "Te enviaremos un código para restablecerla.",
@@ -39,7 +38,6 @@
     "CODE_EXPIRED": "El código ha caducado",
     "errorGeneric": "Ha ocurrido un error"
   },
-
   "register": {
     "title": "Crear cuenta",
     "subtitle": "Crea tu perfil.",
@@ -218,16 +216,26 @@
         "endDate": "Fecha fin",
         "endTime": "Hora fin"
       },
-      "submit": { "idle": "Create", "pending": "Creating..." },
-      "errors": { "reviewFields": "Please review the fields." }
+      "submit": {
+        "idle": "Create",
+        "pending": "Creating..."
+      },
+      "errors": {
+        "reviewFields": "Please review the fields."
+      }
     },
     "boEditClass": {
       "title": "Edit class",
-      "submit": { "idle": "Save", "pending": "Saving..." },
-      "delete": { "idle": "Delete", "pending": "Deleting..." },
+      "submit": {
+        "idle": "Save",
+        "pending": "Saving..."
+      },
+      "delete": {
+        "idle": "Delete",
+        "pending": "Deleting..."
+      },
       "deleted": "Deleted."
     },
-
     "users": {
       "title": "Usuarios",
       "subtitle": "Gestiona roles y acceso al login (cuentas deshabilitadas).",
@@ -258,10 +266,11 @@
         "saveRole": "Guardar rol"
       }
     },
-
     "boNewUser": {
       "title": "Crear usuario",
-      "errors": { "reviewFields": "Revisa los campos." },
+      "errors": {
+        "reviewFields": "Revisa los campos."
+      },
       "fields": {
         "email": "Email",
         "name": "Nombre",
@@ -284,10 +293,11 @@
         "pending": "Creando…"
       }
     },
-
     "boEditUser": {
       "title": "Editar usuario",
-      "errors": { "reviewFields": "Revisa los campos." },
+      "errors": {
+        "reviewFields": "Revisa los campos."
+      },
       "fields": {
         "email": "Email",
         "name": "Nombre",
@@ -318,6 +328,21 @@
         "ACTIVE": "Active",
         "UNDER_CONSTRUCTION": "Under construction",
         "INACTIVE": "Inactive"
+      },
+      "columns": {
+        "page": "Page",
+        "status": "Status",
+        "updated": "Updated"
+      },
+      "search": {
+        "placeholder": "Search by name or path…",
+        "clear": "Clear",
+        "count": "{count} results",
+        "empty": "No matching pages."
+      },
+      "toast": {
+        "saved": "Saved",
+        "error": "Could not save"
       }
     },
     "blogs": {
@@ -332,7 +357,6 @@
     },
     "editPost": {
       "notFound": "Post no encontrado.",
-
       "title": "Editar post",
       "meta": {
         "status": "Estado: {status}",
@@ -359,7 +383,6 @@
         "delete": "Borrar"
       }
     },
-
     "newPost": {
       "title": "Nuevo post",
       "errors": {
@@ -383,14 +406,12 @@
       }
     }
   },
-
   "legalCookies": {
     "title": "Política de Cookies",
     "p1": "Personal & Pilates utiliza únicamente cookies técnicas necesarias para el funcionamiento de la plataforma y la autenticación de usuarios.",
     "p2": "No se utilizan cookies de análisis, publicidad ni seguimiento de terceros.",
     "p3": "Por este motivo, no es necesario mostrar banner de cookies conforme a la normativa vigente."
   },
-
   "legalNotice": {
     "title": "Aviso Legal",
     "owner": "<b>Titular:</b> Javier López Villanueva",
@@ -401,106 +422,79 @@
     "p2": "El acceso y uso del sitio implica la aceptación expresa y sin reservas de todas las condiciones aquí reflejadas.",
     "p3": "El titular no se responsabiliza del uso indebido de la información publicada ni de los daños que pudieran derivarse del uso del sitio web."
   },
-
   "legalPrivacy": {
     "title": "Política de Privacidad",
     "owner": "<b>Responsable:</b> Javier López Villanueva",
     "email": "<b>Email:</b> arrow.apps.jlv@gmail.com",
     "site": "<b>Sitio web:</b> https://personal-pilates.vercel.app",
-
     "p1": "Esta política describe cómo se recogen, utilizan y protegen los datos personales de los usuarios.",
-
     "dataTitle": "<b>Datos tratados:</b>",
     "data1": "Email y nombre (opcional).",
     "data2": "Contraseña cifrada mediante hash seguro.",
     "data3": "Datos técnicos mínimos necesarios para seguridad.",
     "data4": "Cookies técnicas de sesión.",
-
     "purposeTitle": "<b>Finalidades:</b>",
     "purpose1": "Gestión de cuentas de usuario.",
     "purpose2": "Autenticación y acceso a la plataforma.",
     "purpose3": "Seguridad y prevención de fraude.",
-
     "p2": "Los datos no se venden ni se ceden a terceros.",
     "p3": "Puedes ejercer tus derechos RGPD escribiendo a arrow.apps.jlv@gmail.com."
   },
-
   "legalTermsAndConditions": {
     "title": "Términos y Condiciones de Uso",
     "intro": "Estos Términos y Condiciones establecen las reglas aplicables al uso de Personal & Pilates. Al acceder, navegar o registrarte, aceptas cumplirlas.",
-
     "s1Title": "1. Objeto",
     "s1Body": "Personal & Pilates es una plataforma web personal en desarrollo que permite a usuarios crear una cuenta y utilizar funcionalidades de la aplicación.",
-
     "s2Title": "2. Obligaciones del usuario",
     "s2Li1": "Usar la plataforma de forma lícita y de buena fe.",
     "s2Li2": "No vulnerar derechos de terceros.",
     "s2Li3": "No intentar romper la seguridad o el funcionamiento del sitio.",
-
     "s3Title": "3. Contenidos y conducta",
     "s3Body": "Si el servicio permite publicar o introducir contenidos (p. ej. perfil, bio, etc.), el usuario es responsable de lo que publica y garantiza que dispone de los derechos necesarios.",
-
     "s4Title": "4. Propiedad intelectual",
     "s4Body": "El código, diseño y elementos del sitio pertenecen a su titular o se usan bajo licencias que lo permiten. No está permitido copiar o explotar el sitio con fines comerciales sin autorización.",
-
     "s5Title": "5. Terminación",
     "s5Body": "El usuario puede dejar de usar el servicio en cualquier momento. El titular puede suspender o cerrar cuentas ante incumplimientos, por seguridad o por mantenimiento del servicio.",
-
     "s6Title": "6. Enlaces a terceros",
     "s6Body": "El sitio puede incluir enlaces a terceros. El titular no controla dichos sitios ni asume responsabilidad por su contenido o políticas.",
-
     "s7Title": "7. Modificaciones",
     "s7Body": "El titular puede modificar estos términos para adaptarlos a cambios del servicio o requisitos legales. La versión vigente estará disponible en esta página.",
-
     "s8Title": "8. Legislación aplicable",
     "s8Body": "Estos términos se rigen por la legislación española. En caso de disputa, las partes se someterán a los juzgados y tribunales que correspondan conforme a la normativa aplicable."
   },
-
   "legalUseTerms": {
     "title": "Términos de uso",
     "intro": "Estos Términos de Uso regulan el acceso y uso de Personal & Pilates. Al acceder y utilizar el sitio, aceptas estas condiciones.",
-
     "s1Title": "1. Acceso al servicio",
     "s1Body": "El acceso general al sitio es gratuito. Algunas funcionalidades pueden requerir registro e inicio de sesión. El titular podrá modificar, suspender o interrumpir el servicio total o parcialmente por motivos técnicos, de seguridad o mantenimiento.",
-
     "s2Title": "2. Registro y cuenta",
     "s2Li1": "Eres responsable de la veracidad de los datos facilitados y de mantenerlos actualizados.",
     "s2Li2": "Eres responsable de custodiar tus credenciales y de cualquier uso que se haga desde tu cuenta.",
     "s2Li3": "Si detectas un uso no autorizado, debes comunicarlo lo antes posible a <b>{email}</b>.",
-
     "s3Title": "3. Uso permitido",
     "s3Intro": "Te comprometes a utilizar el sitio de forma lícita y conforme a:",
     "s3Li1": "La legislación aplicable y estos términos.",
     "s3Li2": "La buena fe y el respeto a terceros.",
-
     "s4Title": "4. Uso prohibido",
     "s4Intro": "Queda prohibido, entre otros:",
     "s4Li1": "Acceder o intentar acceder a áreas o datos sin autorización.",
     "s4Li2": "Introducir malware, realizar ataques, scraping abusivo o acciones que degraden el servicio.",
     "s4Li3": "Usar el sitio para fines ilícitos o que vulneren derechos de terceros.",
     "s4Li4": "Suplantar identidades o crear cuentas con información falsa de forma maliciosa.",
-
     "s5Title": "5. Contenidos del usuario",
     "s5Body": "Si el sitio permite introducir información (p. ej., perfil, nombre, bio u otros datos), el usuario declara tener derecho a usarla y será el único responsable de lo que publique o facilite.",
-
     "s6Title": "6. Propiedad intelectual",
     "s6Body": "Los contenidos, diseño, código y elementos del sitio pertenecen a su titular o se utilizan bajo licencia. No se permite su reproducción o explotación con fines comerciales sin autorización.",
-
     "s7Title": "7. Exclusión de garantías y responsabilidad",
     "s7Body": "El servicio se ofrece “tal cual”. El titular no garantiza la disponibilidad ininterrumpida del sitio ni la ausencia de errores, aunque se adoptarán medidas razonables para mantener su funcionamiento y seguridad.",
-
     "s8Title": "8. Suspensión o terminación",
     "s8Body": "El titular podrá suspender o cancelar el acceso a usuarios que incumplan estos términos o supongan un riesgo para la seguridad o integridad del servicio.",
-
     "s9Title": "9. Enlaces a terceros",
     "s9Body": "El sitio puede contener enlaces a páginas de terceros. El titular no controla ni se responsabiliza de dichos sitios, sus contenidos o sus políticas.",
-
     "s10Title": "10. Modificaciones",
     "s10Body": "Estos Términos de Uso pueden actualizarse para reflejar cambios del servicio o requisitos legales. La versión vigente estará disponible en esta página.",
-
     "s11Title": "11. Legislación aplicable",
     "s11Body": "Estos términos se rigen por la legislación española. En caso de disputa, las partes se someterán a los juzgados y tribunales que correspondan conforme a la normativa aplicable.",
-
     "contact": "<b>Contacto:</b> Para consultas, escribe a <b>{email}</b>."
   },
   "underConstruction": {
@@ -514,14 +508,12 @@
     "languages": {
       "title": "Idiomas",
       "description": "Juegos para aprender idiomas.",
-
       "languageStep": "1) Idioma",
       "gameStep": "2) Juego",
       "en": "Ingles",
       "es": "Español",
       "languageSelected": "Seleccionado: ",
       "selectLanguage": "Selecciona un idioma",
-
       "animals": {
         "title": "Animales",
         "description": "Aprende los nombres de los animales en distintos idiomas.",
@@ -530,7 +522,6 @@
           "description": "Escribe la traducción correcta según el idioma elegido.",
           "available": "Disponible"
         },
-
         "chooseImage": {
           "title": "Selecciona la imagen correcta",
           "description": "Escoge la imagen correcta segun el idioma elegido.",
@@ -540,10 +531,11 @@
       }
     }
   },
-
   "animalGame": {
     "titleChooseImage": "Selecciona la imagen correcta",
-    "chooseImage": { "prompt": "Selecciona:" },
+    "chooseImage": {
+      "prompt": "Selecciona:"
+    },
     "title": "Animales",
     "languageChosen": "Idioma elegido: ",
     "writeIn": "Escribe en: ",
@@ -555,7 +547,6 @@
     "check": "Comprobar",
     "skip": "Saltar",
     "correctAnswer": "Respuesta correcta: ",
-
     "finish": {
       "title": "¡Juego terminado!",
       "correct": "Aciertos",
@@ -563,7 +554,6 @@
       "accuracy": "Porcentaje de acierto",
       "playAgain": "Jugar otra vez",
       "back": "Volver a Games",
-
       "feedback": {
         "high": "¡Muy bien! Sigue así.",
         "medium": "¡Bien! Un poco más y lo clavas.",

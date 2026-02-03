@@ -5,6 +5,7 @@ import { z } from "zod";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/lib/auth";
 import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
 
 const PageStatusSchema = z.enum(["ACTIVE", "UNDER_CONSTRUCTION", "INACTIVE"]);
 
@@ -25,12 +26,17 @@ export async function updatePageStatus(
 
   const status = String(formData.get("status") ?? "");
   const parsed = PageStatusSchema.safeParse(status);
-  if (!parsed.success) return;
+  if (!parsed.success) return null;
 
-  await prisma.page.upsert({
+  const updated = await prisma.page.upsert({
     where: { path },
     create: { path, status: parsed.data },
     update: { status: parsed.data },
-    select: { id: true },
+    select: { status: true, updatedAt: true },
   });
+
+  // refresca la lista del BO
+  revalidatePath(`/${locale}/bo/pages`);
+
+  return { status: updated.status, updatedAt: updated.updatedAt.toISOString() };
 }

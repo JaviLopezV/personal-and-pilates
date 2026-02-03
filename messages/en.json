@@ -216,13 +216,24 @@
         "endDate": "End date",
         "endTime": "End time"
       },
-      "submit": { "idle": "Create", "pending": "Creating..." },
-      "errors": { "reviewFields": "Please review the fields." }
+      "submit": {
+        "idle": "Create",
+        "pending": "Creating..."
+      },
+      "errors": {
+        "reviewFields": "Please review the fields."
+      }
     },
     "boEditClass": {
       "title": "Edit class",
-      "submit": { "idle": "Save", "pending": "Saving..." },
-      "delete": { "idle": "Delete", "pending": "Deleting..." },
+      "submit": {
+        "idle": "Save",
+        "pending": "Saving..."
+      },
+      "delete": {
+        "idle": "Delete",
+        "pending": "Deleting..."
+      },
       "deleted": "Deleted."
     },
     "users": {
@@ -255,10 +266,11 @@
         "saveRole": "Save role"
       }
     },
-
     "boNewUser": {
       "title": "Create user",
-      "errors": { "reviewFields": "Please review the fields." },
+      "errors": {
+        "reviewFields": "Please review the fields."
+      },
       "fields": {
         "email": "Email",
         "name": "Name",
@@ -281,10 +293,11 @@
         "pending": "Creating..."
       }
     },
-
     "boEditUser": {
       "title": "Edit user",
-      "errors": { "reviewFields": "Please review the fields." },
+      "errors": {
+        "reviewFields": "Please review the fields."
+      },
       "fields": {
         "email": "Email",
         "name": "Name",
@@ -308,7 +321,6 @@
         "pending": "Saving..."
       }
     },
-
     "pages": {
       "title": "Páginas (FO)",
       "save": "Guardar",
@@ -316,6 +328,21 @@
         "ACTIVE": "Activa",
         "UNDER_CONSTRUCTION": "En construcción",
         "INACTIVE": "Inactiva"
+      },
+      "columns": {
+        "page": "Página",
+        "status": "Estado",
+        "updated": "Actualizado"
+      },
+      "search": {
+        "placeholder": "Buscar por nombre o ruta…",
+        "clear": "Limpiar",
+        "count": "{count} resultados",
+        "empty": "No hay páginas que coincidan."
+      },
+      "toast": {
+        "saved": "Guardado",
+        "error": "No se pudo guardar"
       }
     },
     "blogs": {
@@ -330,7 +357,6 @@
     },
     "editPost": {
       "notFound": "Post not found.",
-
       "title": "Edit post",
       "meta": {
         "status": "Status: {status}",
@@ -357,7 +383,6 @@
         "delete": "Delete"
       }
     },
-
     "newPost": {
       "title": "New post",
       "errors": {
@@ -381,14 +406,12 @@
       }
     }
   },
-
   "legalCookies": {
     "title": "Cookies Policy",
     "p1": "Personal & Pilates only uses technical cookies necessary for the operation of the platform and user authentication.",
     "p2": "No analytics, advertising or third-party tracking cookies are used.",
     "p3": "For this reason, displaying a cookie banner is not required under current regulations."
   },
-
   "legalNotice": {
     "title": "Legal Notice",
     "owner": "<b>Owner:</b> Javier López Villanueva",
@@ -399,106 +422,79 @@
     "p2": "Access to and use of the site implies express and unconditional acceptance of all the conditions set out herein.",
     "p3": "The owner is not responsible for improper use of the published information or for any damages that may arise from use of the website."
   },
-
   "legalPrivacy": {
     "title": "Privacy Policy",
     "owner": "<b>Controller:</b> Javier López Villanueva",
     "email": "<b>Email:</b> arrow.apps.jlv@gmail.com",
     "site": "<b>Website:</b> https://personal-pilates.vercel.app",
-
     "p1": "This policy describes how users’ personal data are collected, used and protected.",
-
     "dataTitle": "<b>Data processed:</b>",
     "data1": "Email and name (optional).",
     "data2": "Password encrypted using secure hashing.",
     "data3": "Minimum technical data necessary for security.",
     "data4": "Technical session cookies.",
-
     "purposeTitle": "<b>Purposes:</b>",
     "purpose1": "User account management.",
     "purpose2": "Authentication and access to the platform.",
     "purpose3": "Security and fraud prevention.",
-
     "p2": "Data are not sold or shared with third parties.",
     "p3": "You may exercise your GDPR rights by writing to arrow.apps.jlv@gmail.com."
   },
-
   "legalTermsAndConditions": {
     "title": "Terms and Conditions of Use",
     "intro": "These Terms and Conditions set out the rules applicable to the use of Personal & Pilates. By accessing, browsing or registering, you agree to comply with them.",
-
     "s1Title": "1. Purpose",
     "s1Body": "Personal & Pilates is a personal web platform in development that allows users to create an account and use the application’s features.",
-
     "s2Title": "2. User obligations",
     "s2Li1": "Use the platform lawfully and in good faith.",
     "s2Li2": "Not to infringe third-party rights.",
     "s2Li3": "Not to attempt to compromise the security or operation of the site.",
-
     "s3Title": "3. Content and conduct",
     "s3Body": "If the service allows publishing or entering content (e.g. profile, bio, etc.), the user is responsible for what they publish and warrants that they have the necessary rights.",
-
     "s4Title": "4. Intellectual property",
     "s4Body": "The code, design and site elements belong to the owner or are used under licences that permit their use. Copying or exploiting the site for commercial purposes without authorisation is not permitted.",
-
     "s5Title": "5. Termination",
     "s5Body": "The user may stop using the service at any time. The owner may suspend or close accounts in the event of breaches, for security reasons or for service maintenance.",
-
     "s6Title": "6. Third-party links",
     "s6Body": "The site may include links to third parties. The owner does not control such sites nor assumes responsibility for their content or policies.",
-
     "s7Title": "7. Amendments",
     "s7Body": "The owner may amend these terms to adapt them to service changes or legal requirements. The current version will be available on this page.",
-
     "s8Title": "8. Applicable law",
     "s8Body": "These terms are governed by Spanish law. In the event of a dispute, the parties shall submit to the courts and tribunals having jurisdiction under the applicable regulations."
   },
-
   "legalUseTerms": {
     "title": "Terms of Use",
     "intro": "These Terms of Use govern access to and use of Personal & Pilates. By accessing and using the site, you accept these conditions.",
-
     "s1Title": "1. Access to the service",
     "s1Body": "General access to the site is free of charge. Some features may require registration and sign-in. The owner may modify, suspend or interrupt the service in whole or in part for technical, security or maintenance reasons.",
-
     "s2Title": "2. Registration and account",
     "s2Li1": "You are responsible for the accuracy of the data provided and for keeping them up to date.",
     "s2Li2": "You are responsible for safeguarding your credentials and for any use made through your account.",
     "s2Li3": "If you detect unauthorised use, you must notify <b>{email}</b> as soon as possible.",
-
     "s3Title": "3. Permitted use",
     "s3Intro": "You undertake to use the site lawfully and in accordance with:",
     "s3Li1": "Applicable law and these terms.",
     "s3Li2": "Good faith and respect for others.",
-
     "s4Title": "4. Prohibited use",
     "s4Intro": "It is prohibited, among others:",
     "s4Li1": "Accessing or attempting to access areas or data without authorisation.",
     "s4Li2": "Introducing malware, carrying out attacks, abusive scraping or actions that degrade the service.",
     "s4Li3": "Using the site for unlawful purposes or in ways that infringe third-party rights.",
     "s4Li4": "Impersonating identities or maliciously creating accounts with false information.",
-
     "s5Title": "5. User content",
     "s5Body": "If the site allows entering information (e.g. profile, name, bio or other data), the user declares that they have the right to use it and will be solely responsible for what they publish or provide.",
-
     "s6Title": "6. Intellectual property",
     "s6Body": "The content, design, code and site elements belong to the owner or are used under licence. Their reproduction or exploitation for commercial purposes without authorisation is not permitted.",
-
     "s7Title": "7. Disclaimer of warranties and liability",
     "s7Body": "The service is provided “as is”. The owner does not guarantee uninterrupted availability of the site or the absence of errors, although reasonable measures will be taken to maintain its operation and security.",
-
     "s8Title": "8. Suspension or termination",
     "s8Body": "The owner may suspend or cancel access for users who breach these terms or pose a risk to the security or integrity of the service.",
-
     "s9Title": "9. Third-party links",
     "s9Body": "The site may contain links to third-party pages. The owner does not control nor is responsible for such sites, their content or their policies.",
-
     "s10Title": "10. Amendments",
     "s10Body": "These Terms of Use may be updated to reflect service changes or legal requirements. The current version will be available on this page.",
-
     "s11Title": "11. Applicable law",
     "s11Body": "These terms are governed by Spanish law. In the event of a dispute, the parties shall submit to the courts and tribunals having jurisdiction under the applicable regulations.",
-
     "contact": "<b>Contact:</b> For enquiries, write to <b>{email}</b>."
   },
   "underConstruction": {
@@ -512,14 +508,12 @@
     "languages": {
       "title": "Languages",
       "description": "Games to learn languages.",
-
       "languageStep": "1) Language",
       "gameStep": "2) Game",
       "en": "English",
       "es": "Spanish",
       "languageSelected": "Selected: ",
       "selectLanguage": "Select a language",
-
       "animals": {
         "title": "Animals",
         "description": "Learn the names of animals in different languages.",
@@ -528,7 +522,6 @@
           "description": "Write the correct translation according to the selected language.",
           "available": "Available"
         },
-
         "chooseImage": {
           "title": "Select the correct image",
           "description": "Choose the image according to the selected language.",
@@ -538,10 +531,11 @@
       }
     }
   },
-
   "animalGame": {
     "titleChooseImage": "Select the correct image",
-    "chooseImage": { "prompt": "Choose:" },
+    "chooseImage": {
+      "prompt": "Choose:"
+    },
     "title": "Animals",
     "languageChosen": "Chosen language: ",
     "writeIn": "Write in: ",
@@ -553,7 +547,6 @@
     "check": "Check",
     "skip": "Skip",
     "correctAnswer": "Correct answer: ",
-
     "finish": {
       "title": "Game finished!",
       "correct": "Correct",
@@ -561,7 +554,6 @@
       "accuracy": "Accuracy rate",
       "playAgain": "Play again",
       "back": "Back to Games",
-
       "feedback": {
         "high": "Great job! Keep it up.",
         "medium": "Nice! You're almost there.",
