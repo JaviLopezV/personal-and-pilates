@@ -1,5 +1,7 @@
 // app/[locale]/(bo)/bo/users/UserRow.tsx
-import Link from "next/link";
+"use client";
+
+import { Link } from "@/i18n/navigation";
 import {
   Avatar,
   Box,
@@ -15,25 +17,15 @@ import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
 import BlockOutlinedIcon from "@mui/icons-material/BlockOutlined";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
-import type { getTranslations } from "next-intl/server";
+import { useTranslations } from "next-intl";
 import { setUserDisabled, setUserRole } from "./actions";
-import type { Role } from "./page";
-
-type User = {
-  id: string;
-  email: string;
-  name: string | null;
-  role: Role;
-  disabled: boolean;
-  availableClasses: number;
-};
+import type { BoUserItem, Role } from "./types";
 
 type Props = {
   locale: string;
-  t: Awaited<ReturnType<typeof getTranslations>>;
   actorRole: Role;
   actorId: string;
-  user: User;
+  user: BoUserItem;
 };
 
 function canDisableTarget(actorRole: Role, targetRole: Role) {
@@ -60,7 +52,8 @@ function initials(name: string | null, email: string) {
   return (a + b).slice(0, 2);
 }
 
-export default function UserRow({ locale, t, actorRole, actorId, user }: Props) {
+export default function UserRow({ locale, actorRole, actorId, user }: Props) {
+  const t = useTranslations("bo.users");
   const isSelf = user.id === actorId;
   const canDisable = canDisableTarget(actorRole, user.role) && !isSelf;
   const canRoleChange = canEditRole(actorRole, user.role) && !isSelf;

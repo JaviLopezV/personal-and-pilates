@@ -1,62 +1,28 @@
-"use server";
 import { prisma } from "@/app/lib/prisma";
 import { authOptions } from "@/app/lib/auth";
 import { getServerSession } from "next-auth";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import { Box, Button, Typography } from "@mui/material";
-import RoleFilters from "./RoleFilters";
-import UserRow from "./UserRow";
-import BoPage from "../../components/BoPage";
-import BoTableCard from "../../components/BoTableCard";
+import { Button } from "@mui/material";
 
-export type Role = "CLIENT" | "ADMIN" | "SUPERADMIN";
-export type RoleFilter = Role | "ALL";
+import BoPage from "../../components/BoPage";
+import UsersAdminClient from "./users-admin-client";
+import type { BoUserItem, Role } from "./types";
 
 type Props = {
   params: Promise<{ locale: string }>;
-  searchParams?: unknown;
 };
 
-function normalizeRoleFilter(v: unknown): RoleFilter {
-  const s = String(v ?? "ALL");
-  return s === "CLIENT" || s === "ADMIN" || s === "SUPERADMIN" ? s : "ALL";
-}
-
-function safeSearchParams(sp: unknown): Record<string, unknown> {
-  // Some environments might hand you a Promise-like; treat it as empty.
-  if (sp && typeof (sp as any)?.then === "function") return {};
-  return (sp ?? {}) as Record<string, unknown>;
-}
-
-function roleWhere(filter: RoleFilter) {
-  return filter === "ALL"
-    ? { deleted: false }
-    : { deleted: false, role: filter as any };
-}
-
-type BoUser = {
-  id: string;
-  email: string;
-  name: string | null;
-  role: Role;
-  disabled: boolean;
-  availableClasses: number;
-};
-
-export default async function BoUsersPage({ params, searchParams }: Props) {
+export default async function BoUsersPage({ params }: Props) {
   const { locale } = await params;
   const t = await getTranslations("bo.users");
-
-  const sp = safeSearchParams(searchParams);
-  const selectedRole = normalizeRoleFilter(sp.role);
 
   const session = await getServerSession(authOptions);
   const actorRole = ((session?.user as any)?.role ?? "CLIENT") as Role;
   const actorId = ((session?.user as any)?.id ?? "") as string;
 
-  const users: BoUser[] = await prisma.user.findMany({
-    where: roleWhere(selectedRole),
+  const users = await prisma.user.findMany({
+    where: { deleted: false },
     orderBy: [{ role: "asc" }, { email: "asc" }],
     select: {
       id: true,
@@ -66,7 +32,17 @@ export default async function BoUsersPage({ params, searchParams }: Props) {
       disabled: true,
       availableClasses: true,
     },
+    take: 500,
   });
+
+  const items: BoUserItem[] = users.map((u) => ({
+    id: u.id,
+    email: u.email,
+    name: u.name,
+    role: u.role as Role,
+    disabled: u.disabled,
+    availableClasses: u.availableClasses,
+  }));
 
   return (
     <BoPage
@@ -78,47 +54,12 @@ export default async function BoUsersPage({ params, searchParams }: Props) {
         </Link>
       }
     >
-      <RoleFilters
+      <UsersAdminClient
         locale={locale}
-        selectedRole={selectedRole}
-        labels={{
-          roleLabel: t("filters.roleLabel"),
-          allRoles: t("filters.allRoles"),
-          superadmin: t("roles.SUPERADMIN"),
-          admin: t("roles.ADMIN"),
-          client: t("roles.CLIENT"),
-        }}
+        actorRole={actorRole}
+        actorId={actorId}
+        users={items}
       />
-
-      <BoTableCard
-        isEmpty={users.length === 0}
-        empty={t("empty")}
-        header={
-          <Typography variant="subtitle2" fontWeight={800}>
-            {users.length} {users.length === 1 ? "usuario" : "usuarios"}
-          </Typography>
-        }
-      >
-        <Box>
-          {users.map((u) => (
-            <UserRow
-              key={u.id}
-              locale={locale}
-              t={t}
-              actorRole={actorRole}
-              actorId={actorId}
-              user={{
-                id: u.id,
-                email: u.email,
-                name: u.name,
-                role: u.role as Role,
-                disabled: u.disabled,
-                availableClasses: u.availableClasses,
-              }}
-            />
-          ))}
-        </Box>
-      </BoTableCard>
     </BoPage>
   );
 }

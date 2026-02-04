@@ -3,7 +3,7 @@
 
 import { useRouter } from "next/navigation";
 import { Box, Paper, Tab, Tabs, Typography } from "@mui/material";
-import type { RoleFilter } from "./page";
+import type { RoleFilter } from "./types";
 
 type Props = {
   locale: string;

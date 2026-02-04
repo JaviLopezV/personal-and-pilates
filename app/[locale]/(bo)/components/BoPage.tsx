@@ -30,14 +30,15 @@ export default function BoPage({
       >
         <Stack direction="row" spacing={1} alignItems="center">
           {backHref ? (
-            <IconButton
-              component={Link as any}
+            <Link
               href={backHref}
               aria-label="back"
-              size="small"
+              style={{ display: "inline-flex", alignItems: "center" }}
             >
-              <ArrowBackIcon />
-            </IconButton>
+              <IconButton component="span" aria-label="back" size="small">
+                <ArrowBackIcon />
+              </IconButton>
+            </Link>
           ) : null}
 
           <Box>

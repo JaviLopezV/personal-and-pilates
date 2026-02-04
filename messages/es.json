@@ -274,7 +274,13 @@
       "selfProtected": "No puedes aplicarte cambios a ti mismo.",
       "filters": {
         "roleLabel": "Filtrar por rol",
-        "allRoles": "Todos"
+        "allRoles": "Todos",
+        "searchPlaceholder": "Buscar por nombre o email…",
+        "reset": "Restablecer filtros",
+        "total": "Total",
+        "disabled": "Deshabilitados",
+        "user": "usuario",
+        "users": "usuarios"
       },
       "roles": {
         "SUPERADMIN": "SUPERADMIN",
