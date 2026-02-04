@@ -4,9 +4,11 @@ import { authOptions } from "@/app/lib/auth";
 import { getServerSession } from "next-auth";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import { Box, Button, Paper, Stack, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import RoleFilters from "./RoleFilters";
 import UserRow from "./UserRow";
+import BoPage from "../../components/BoPage";
+import BoTableCard from "../../components/BoTableCard";
 
 export type Role = "CLIENT" | "ADMIN" | "SUPERADMIN";
 export type RoleFilter = Role | "ALL";
@@ -67,25 +69,15 @@ export default async function BoUsersPage({ params, searchParams }: Props) {
   });
 
   return (
-    <Stack spacing={3}>
-      <Stack
-        spacing={1}
-        direction={{ xs: "column", sm: "row" }}
-        alignItems={{ xs: "flex-start", sm: "center" }}
-        justifyContent="space-between"
-      >
-        <Box>
-          <Typography variant="h4" fontWeight={800}>
-            {t("title")}
-          </Typography>
-          <Typography color="text.secondary">{t("subtitle")}</Typography>
-        </Box>
-
+    <BoPage
+      title={t("title")}
+      subtitle={t("subtitle")}
+      actions={
         <Link href="/bo/users/new" style={{ textDecoration: "none" }}>
           <Button variant="contained">{t("actions.create")}</Button>
         </Link>
-      </Stack>
-
+      }
+    >
       <RoleFilters
         locale={locale}
         selectedRole={selectedRole}
@@ -98,47 +90,35 @@ export default async function BoUsersPage({ params, searchParams }: Props) {
         }}
       />
 
-      <Paper variant="outlined" sx={{ overflow: "hidden" }}>
-        {users.length === 0 ? (
-          <Box p={3}>
-            <Typography color="text.secondary">{t("empty")}</Typography>
-          </Box>
-        ) : (
-          <Box>
-            <Box
-              sx={{
-                px: { xs: 2, md: 3 },
-                py: 1.5,
-                bgcolor: "action.hover",
-                borderBottom: "1px solid",
-                borderColor: "divider",
+      <BoTableCard
+        isEmpty={users.length === 0}
+        empty={t("empty")}
+        header={
+          <Typography variant="subtitle2" fontWeight={800}>
+            {users.length} {users.length === 1 ? "usuario" : "usuarios"}
+          </Typography>
+        }
+      >
+        <Box>
+          {users.map((u) => (
+            <UserRow
+              key={u.id}
+              locale={locale}
+              t={t}
+              actorRole={actorRole}
+              actorId={actorId}
+              user={{
+                id: u.id,
+                email: u.email,
+                name: u.name,
+                role: u.role as Role,
+                disabled: u.disabled,
+                availableClasses: u.availableClasses,
               }}
-            >
-              <Typography variant="subtitle2" fontWeight={800}>
-                {users.length} {users.length === 1 ? "usuario" : "usuarios"}
-              </Typography>
-            </Box>
-
-            {users.map((u) => (
-              <UserRow
-                key={u.id}
-                locale={locale}
-                t={t}
-                actorRole={actorRole}
-                actorId={actorId}
-                user={{
-                  id: u.id,
-                  email: u.email,
-                  name: u.name,
-                  role: u.role as Role,
-                  disabled: u.disabled,
-                  availableClasses: u.availableClasses,
-                }}
-              />
-            ))}
-          </Box>
-        )}
-      </Paper>
-    </Stack>
+            />
+          ))}
+        </Box>
+      </BoTableCard>
+    </BoPage>
   );
 }

@@ -7,9 +7,7 @@ import {
   Alert,
   Box,
   Button,
-  IconButton,
   MenuItem,
-  Paper,
   Select,
   Stack,
   TextField,
@@ -17,7 +15,8 @@ import {
 } from "@mui/material";
 import { useTranslations } from "next-intl";
 import { createUser, type UserActionState } from "../actions";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import BoPage from "../../../components/BoPage";
+import BoCard from "../../../components/BoCard";
 
 const initialState: UserActionState = { ok: true };
 
@@ -40,20 +39,9 @@ export default function NewUserPage() {
     }
   }, [state, router, locale]);
 
-  const goBack = () => router.push(`/${locale}/bo/users`);
-
   return (
-    <Stack spacing={3} maxWidth={900}>
-      <Stack direction="row" alignItems="center" spacing={1}>
-        <IconButton onClick={goBack} aria-label={"back"}>
-          <ArrowBackIcon />
-        </IconButton>
-        <Typography variant="h5" fontWeight={800}>
-          {t("title")}
-        </Typography>
-      </Stack>
-
-      <Paper variant="outlined" sx={{ p: 3 }}>
+    <BoPage title={t("title")} backHref="/bo/users" maxWidth={900}>
+      <BoCard>
         <Box component="form" action={formAction}>
           <Stack spacing={2}>
             {state.ok === false && (state.formError || state.fieldErrors) && (
@@ -67,18 +55,14 @@ export default function NewUserPage() {
               label={t("fields.email")}
               required
               error={state.ok === false && !!state.fieldErrors?.email}
-              helperText={
-                state.ok === false ? state.fieldErrors?.email?.[0] : ""
-              }
+              helperText={state.ok === false ? state.fieldErrors?.email?.[0] : ""}
             />
 
             <TextField
               name="name"
               label={t("fields.name")}
               error={state.ok === false && !!state.fieldErrors?.name}
-              helperText={
-                state.ok === false ? state.fieldErrors?.name?.[0] : ""
-              }
+              helperText={state.ok === false ? state.fieldErrors?.name?.[0] : ""}
             />
 
             <Box>
@@ -109,13 +93,9 @@ export default function NewUserPage() {
               defaultValue={0}
               inputProps={{ min: 0 }}
               required
-              error={
-                state.ok === false && !!state.fieldErrors?.availableClasses
-              }
+              error={state.ok === false && !!state.fieldErrors?.availableClasses}
               helperText={
-                state.ok === false
-                  ? state.fieldErrors?.availableClasses?.[0]
-                  : ""
+                state.ok === false ? state.fieldErrors?.availableClasses?.[0] : ""
               }
             />
 
@@ -125,22 +105,15 @@ export default function NewUserPage() {
               type="password"
               required
               error={state.ok === false && !!state.fieldErrors?.password}
-              helperText={
-                state.ok === false ? state.fieldErrors?.password?.[0] : ""
-              }
+              helperText={state.ok === false ? state.fieldErrors?.password?.[0] : ""}
             />
 
-            <Button
-              type="submit"
-              variant="contained"
-              size="large"
-              disabled={isPending}
-            >
+            <Button type="submit" variant="contained" size="large" disabled={isPending}>
               {isPending ? t("submit.pending") : t("submit.idle")}
             </Button>
           </Stack>
         </Box>
-      </Paper>
-    </Stack>
+      </BoCard>
+    </BoPage>
   );
 }

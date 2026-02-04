@@ -1,14 +1,14 @@
 import { notFound } from "next/navigation";
 import { prisma } from "@/app/lib/prisma";
-import { Stack } from "@mui/material";
 import { getTranslations } from "next-intl/server";
 import EditUserForm from "./EditUserForm";
+import BoPage from "../../../../components/BoPage";
 
 type Params = { params: Promise<{ id: string; locale: string }> };
 
 export default async function EditUserPage({ params }: Params) {
   const { id, locale } = await params;
-  await getTranslations("bo.boEditUser");
+  const t = await getTranslations("bo.boEditUser");
 
   const user = await prisma.user.findUnique({
     where: { id },
@@ -25,8 +25,8 @@ export default async function EditUserPage({ params }: Params) {
   if (!user) return notFound();
 
   return (
-    <Stack spacing={3} maxWidth={900}>
+    <BoPage title={t("title")} backHref="/bo/users" maxWidth={900}>
       <EditUserForm locale={locale} user={user as any} />
-    </Stack>
+    </BoPage>
   );
 }

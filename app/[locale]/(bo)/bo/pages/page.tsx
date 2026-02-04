@@ -1,8 +1,8 @@
-import { Stack, Typography } from "@mui/material";
 import { prisma } from "@/app/lib/prisma";
 import { ensureFoPagesExist } from "@/app/lib/pages";
 import { getTranslations } from "next-intl/server";
 import PagesAdminClient from "./pages-admin-client";
+import BoPage from "../../components/BoPage";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -33,12 +33,8 @@ export default async function BoPagesPage({ params }: Props) {
   }));
 
   return (
-    <Stack spacing={3}>
-      <Typography variant="h4" fontWeight={800}>
-        {t("title")}
-      </Typography>
-
+    <BoPage title={t("title")}>
       <PagesAdminClient locale={locale} pages={serializablePages} />
-    </Stack>
+    </BoPage>
   );
 }

@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 import { prisma } from "@/app/lib/prisma";
-import { Stack } from "@mui/material";
 import { getTranslations } from "next-intl/server";
 import EditClassForm from "./EditClassForm";
+import BoPage from "../../../../components/BoPage";
 
 type Params = { params: Promise<{ id: string }> };
 
@@ -27,8 +27,8 @@ export default async function EditClassPage({ params }: Params) {
   if (!session) return notFound();
 
   return (
-    <Stack spacing={3} maxWidth={900}>
+    <BoPage title={t("title")} backHref="/bo/classes" maxWidth={900}>
       <EditClassForm session={session} />
-    </Stack>
+    </BoPage>
   );
 }
