@@ -303,6 +303,7 @@
       },
       "actions": {
         "create": "Create user",
+        "view": "View",
         "edit": "Edit",
         "disable": "Disable",
         "enable": "Enable",
@@ -364,6 +365,43 @@
       "submit": {
         "idle": "Save changes",
         "pending": "Saving..."
+      }
+    },
+    "boViewUser": {
+      "title": "User",
+      "nav": {
+        "aria": "User navigation",
+        "view": "View",
+        "edit": "Edit"
+      },
+      "tabs": {
+        "aria": "User tabs",
+        "details": "User details",
+        "history": "Class history"
+      },
+      "details": {
+        "id": "ID",
+        "email": "Email",
+        "name": "Name",
+        "noName": "(no name)",
+        "role": "Role",
+        "access": "Access",
+        "enabled": "Enabled",
+        "disabled": "Disabled",
+        "availableClasses": "Available classes",
+        "availableClassesValue": "{n}",
+        "createdAt": "Created",
+        "updatedAt": "Updated"
+      },
+      "history": {
+        "upcoming": "Upcoming (reserved)",
+        "past": "Past (reserved)",
+        "empty": "No reservations for this user.",
+        "instructor": "Instructor",
+        "status": {
+          "active": "Active",
+          "canceled": "Canceled"
+        }
       }
     },
     "pages": {

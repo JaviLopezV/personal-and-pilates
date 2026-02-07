@@ -3,6 +3,7 @@ import { prisma } from "@/app/lib/prisma";
 import { getTranslations } from "next-intl/server";
 import EditUserForm from "./EditUserForm";
 import BoPage from "../../../../components/BoPage";
+import UserNavTabs from "../UserNavTabs";
 
 type Params = { params: Promise<{ id: string; locale: string }> };
 
@@ -25,7 +26,12 @@ export default async function EditUserPage({ params }: Params) {
   if (!user) return notFound();
 
   return (
-    <BoPage title={t("title")} backHref="/bo/users" maxWidth={900}>
+    <BoPage
+      title={t("title")}
+      backHref="/bo/users"
+      maxWidth={900}
+      actions={<UserNavTabs id={id} active="edit" />}
+    >
       <EditUserForm locale={locale} user={user as any} />
     </BoPage>
   );

@@ -306,12 +306,50 @@
       },
       "actions": {
         "create": "Crear usuario",
+        "view": "Ver",
         "edit": "Editar",
         "disable": "Deshabilitar",
         "enable": "Habilitar",
         "makeAdmin": "Hacer ADMIN",
         "removeAdmin": "Quitar ADMIN",
         "saveRole": "Guardar rol"
+      }
+    },
+    "boViewUser": {
+      "title": "Ver usuario",
+      "nav": {
+        "aria": "Navegación de usuario",
+        "view": "Ver",
+        "edit": "Editar"
+      },
+      "tabs": {
+        "aria": "Pestañas de usuario",
+        "details": "Detalle del usuario",
+        "history": "Histórico de clases"
+      },
+      "details": {
+        "id": "ID",
+        "email": "Email",
+        "name": "Nombre",
+        "noName": "(sin nombre)",
+        "role": "Rol",
+        "access": "Acceso",
+        "enabled": "Activa",
+        "disabled": "Deshabilitada",
+        "availableClasses": "Clases disponibles",
+        "availableClassesValue": "{n}",
+        "createdAt": "Creado",
+        "updatedAt": "Actualizado"
+      },
+      "history": {
+        "upcoming": "Próximas",
+        "past": "Pasadas",
+        "empty": "No hay clases reservadas.",
+        "instructor": "Instructor",
+        "status": {
+          "active": "Reservada",
+          "canceled": "Cancelada"
+        }
       }
     },
     "boNewUser": {
@@ -367,6 +405,43 @@
       "submit": {
         "idle": "Guardar cambios",
         "pending": "Guardando…"
+      }
+    },
+    "boViewUser": {
+      "title": "Usuario",
+      "nav": {
+        "aria": "Navegación de usuario",
+        "view": "Ver",
+        "edit": "Editar"
+      },
+      "tabs": {
+        "aria": "Pestañas de usuario",
+        "details": "Detalle del usuario",
+        "history": "Histórico de clases"
+      },
+      "details": {
+        "id": "ID",
+        "email": "Email",
+        "name": "Nombre",
+        "noName": "(sin nombre)",
+        "role": "Rol",
+        "access": "Acceso",
+        "enabled": "Activa",
+        "disabled": "Deshabilitada",
+        "availableClasses": "Clases disponibles",
+        "availableClassesValue": "{n}",
+        "createdAt": "Creado",
+        "updatedAt": "Actualizado"
+      },
+      "history": {
+        "upcoming": "Próximas (reservadas)",
+        "past": "Pasadas (reservadas)",
+        "empty": "No hay reservas para este usuario.",
+        "instructor": "Instructor",
+        "status": {
+          "active": "Activa",
+          "canceled": "Cancelada"
+        }
       }
     },
     "pages": {

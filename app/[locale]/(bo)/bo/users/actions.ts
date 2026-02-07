@@ -143,7 +143,6 @@ export async function updateUser(
     role: formData.get("role") || undefined,
     disabled: (formData.get("disabled") as any) || undefined,
     availableClasses: formData.get("availableClasses"),
-    password: formData.get("password"),
   });
 
   if (!parsed.success) {
@@ -198,7 +197,6 @@ export async function updateUser(
     data,
     select: { id: true },
   });
-
 
   revalidatePath(`/${locale}/bo/users`);
   revalidatePath(`/${locale}/bo/users/${userId}/edit`);

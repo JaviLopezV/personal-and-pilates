@@ -14,6 +14,7 @@ import {
   Typography,
 } from "@mui/material";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
+import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
 import BlockOutlinedIcon from "@mui/icons-material/BlockOutlined";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
@@ -171,6 +172,12 @@ export default function UserRow({ locale, actorRole, actorId, user }: Props) {
               </Button>
             </form>
           )}
+
+          <Link href={`/bo/users/${user.id}`} style={{ textDecoration: "none" }}>
+            <Button size="small" variant="text" startIcon={<VisibilityOutlinedIcon />}>
+              {t("actions.view")}
+            </Button>
+          </Link>
 
           <Link href={`/bo/users/${user.id}/edit`} style={{ textDecoration: "none" }}>
             <Button size="small" variant="text" startIcon={<EditOutlinedIcon />}>
