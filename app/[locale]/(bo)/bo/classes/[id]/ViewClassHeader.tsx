@@ -5,6 +5,7 @@ import { useParams, useRouter } from "next/navigation";
 import { Box, Button, Stack, Typography, IconButton } from "@mui/material";
 import { Link } from "@/i18n/navigation";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { deleteClassSession } from "../actions";
 
 type ClassHeader = {
   title: string;
@@ -31,7 +32,22 @@ export default function ViewClassHeader({ cs }: { cs: ClassHeader }) {
   const params = useParams();
   const locale = (params?.locale as string) || "es";
 
+  const [isDeleting, setIsDeleting] = React.useState(false);
+
   const goBack = () => router.push(`/${locale}/bo/classes`);
+
+  async function handleDelete() {
+    // eslint-disable-next-line no-alert
+    if (!confirm("¿Eliminar esta clase? Esto eliminará también sus reservas.")) return;
+    try {
+      setIsDeleting(true);
+      await deleteClassSession(locale, cs.id);
+      router.push(`/${locale}/bo/classes`);
+      router.refresh();
+    } finally {
+      setIsDeleting(false);
+    }
+  }
 
   return (
     <Stack direction="row" justifyContent="space-between" alignItems="center">
@@ -60,6 +76,15 @@ export default function ViewClassHeader({ cs }: { cs: ClassHeader }) {
         >
           <Button variant="outlined">Editar</Button>
         </Link>
+
+        <Button
+          variant="outlined"
+          color="error"
+          onClick={handleDelete}
+          disabled={isDeleting}
+        >
+          {isDeleting ? "Eliminando…" : "Eliminar"}
+        </Button>
       </Stack>
     </Stack>
   );

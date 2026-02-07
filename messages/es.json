@@ -141,7 +141,7 @@
       "pages": "Páginas",
       "blogs": "Blogs",
       "settings": "Ajustes",
-      "classes": "Classes"
+      "classes": "Clases"
     },
     "topbarTitle": "Admin",
     "openMenuAria": "open navigation menu"
@@ -199,42 +199,55 @@
       "title": "Clases",
       "new": "Nueva clase",
       "empty": "No hay clases creadas todavía.",
-    "edit": "Editar",
-    "filters": {
-      "total": "Total",
-      "active": "Activas",
-      "past": "Pasadas",
-      "full": "Completas",
-      "reset": "Limpiar filtros",
+      "edit": "Editar",
+      "filters": {
+        "total": "Total",
+        "active": "Activas",
+        "past": "Pasadas",
+        "full": "Completas",
+        "reset": "Limpiar filtros",
 
-      "tabActive": "Activas",
-      "tabAll": "Todas",
-      "tabPast": "Pasadas",
+        "tabActive": "Activas",
+        "tabAll": "Todas",
+        "tabPast": "Pasadas",
 
-      "searchPlaceholder": "Buscar por título o tipo",
-      "type": "Tipo",
-      "capacity": "Aforo",
-      "all": "Todos",
-      "hasSpots": "Con plazas",
-      "isFull": "Completas",
-      "from": "Desde",
-      "to": "Hasta",
-      "sort": "Orden",
-      "sortAsc": "Fecha (próximas primero)",
-      "sortDesc": "Fecha (recientes primero)",
+        "searchPlaceholder": "Buscar por título o tipo",
+        "type": "Tipo",
+        "capacity": "Aforo",
+        "all": "Todos",
+        "hasSpots": "Con plazas",
+        "isFull": "Completas",
+        "from": "Desde",
+        "to": "Hasta",
+        "sort": "Orden",
+        "sortAsc": "Fecha (próximas primero)",
+        "sortDesc": "Fecha (recientes primero)",
 
-      "statusPast": "Pasada",
-      "statusActive": "Activa",
-      "statusFull": "Completa",
-      "statusSpots": "Plazas",
-      "view": "Ver"
-    }
+        "statusPast": "Pasada",
+        "statusActive": "Activa",
+        "statusFull": "Completa",
+        "statusSpots": "Plazas",
+        "view": "Ver"
+      }
     },
     "boNewClass": {
       "title": "Nueva clase",
       "fields": {
         "title": "Título",
         "type": "Tipo",
+        "typeHelp": "Privada (una sola) o Colectiva (se repite semanalmente).",
+        "typeOptions": {
+          "collective": "Colectiva",
+          "private": "Privada"
+        },
+        "recurrence": "Recurrencia",
+        "recurrenceHelp": "Crea automáticamente una clase semanal durante el periodo elegido.",
+        "recurrenceOptions": {
+          "m3": "3 meses",
+          "m6": "6 meses",
+          "m9": "9 meses",
+          "y1": "1 año"
+        },
         "instructor": "Instructor",
         "notes": "Notes",
         "startsAt": "Empieza a las",

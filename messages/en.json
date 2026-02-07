@@ -232,6 +232,19 @@
       "fields": {
         "title": "Title",
         "type": "Type",
+        "typeHelp": "Private (single) or Group (repeats weekly).",
+        "typeOptions": {
+          "collective": "Group",
+          "private": "Private"
+        },
+        "recurrence": "Recurrence",
+        "recurrenceHelp": "Automatically creates a weekly class for the selected period.",
+        "recurrenceOptions": {
+          "m3": "3 months",
+          "m6": "6 months",
+          "m9": "9 months",
+          "y1": "1 year"
+        },
         "instructor": "Instructor",
         "notes": "Notes",
         "startsAt": "Starts at",

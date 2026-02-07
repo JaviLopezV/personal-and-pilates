@@ -2,7 +2,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useActionState } from "react";
 import { useRouter, useParams } from "next/navigation";
-import { Alert, Box, Button, Stack, TextField } from "@mui/material";
+import { Alert, Box, Button, MenuItem, Stack, TextField } from "@mui/material";
 import { createClassSession, type ClassActionState } from "../actions";
 import { useTranslations } from "next-intl";
 import BoPage from "../../../components/BoPage";
@@ -22,6 +22,8 @@ export default function NewClassPage() {
   const [startDate, setStartDate] = useState(today);
   const [startTime, setStartTime] = useState("09:00");
   const [endTime, setEndTime] = useState("10:00");
+  const [type, setType] = useState<"COLECTIVA" | "PRIVADA">("COLECTIVA");
+  const [recurrence, setRecurrence] = useState<"3m" | "6m" | "9m" | "12m">("3m");
 
   const router = useRouter();
   const params = useParams();
@@ -61,10 +63,36 @@ export default function NewClassPage() {
             <TextField
               name="type"
               label={t("fields.type")}
+              select
               required
+              value={type}
+              onChange={(e) => setType(e.target.value as any)}
               error={state.ok === false && !!state.fieldErrors?.type}
-              helperText={state.ok === false ? state.fieldErrors?.type?.[0] : ""}
-            />
+              helperText={state.ok === false ? state.fieldErrors?.type?.[0] : t("fields.typeHelp")}
+            >
+              <MenuItem value="COLECTIVA">{t("fields.typeOptions.collective")}</MenuItem>
+              <MenuItem value="PRIVADA">{t("fields.typeOptions.private")}</MenuItem>
+            </TextField>
+
+            {type === "COLECTIVA" ? (
+              <TextField
+                name="recurrence"
+                label={t("fields.recurrence")}
+                select
+                required
+                value={recurrence}
+                onChange={(e) => setRecurrence(e.target.value as any)}
+                error={state.ok === false && !!state.fieldErrors?.recurrence}
+                helperText={state.ok === false ? state.fieldErrors?.recurrence?.[0] : t("fields.recurrenceHelp")}
+              >
+                <MenuItem value="3m">{t("fields.recurrenceOptions.m3")}</MenuItem>
+                <MenuItem value="6m">{t("fields.recurrenceOptions.m6")}</MenuItem>
+                <MenuItem value="9m">{t("fields.recurrenceOptions.m9")}</MenuItem>
+                <MenuItem value="12m">{t("fields.recurrenceOptions.y1")}</MenuItem>
+              </TextField>
+            ) : (
+              <input type="hidden" name="recurrence" value="" />
+            )}
 
             <TextField name="instructor" label={t("fields.instructor")} />
             <TextField
