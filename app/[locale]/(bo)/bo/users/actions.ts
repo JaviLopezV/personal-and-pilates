@@ -67,18 +67,18 @@ function canAdminEditTarget(actorRole: Role, targetRole: Role) {
 const CreateUserSchema = z.object({
   email: z.string().email(),
   name: z.string().trim().optional().or(z.literal("")),
+  notes: z.string().trim().optional().or(z.literal("")),
   role: RoleSchema,
   disabled: z.enum(["true", "false"]).default("false"),
   availableClasses: z.coerce.number().int().min(0).default(0),
-  password: z.string().min(8),
 });
 
 const UpdateUserSchema = z.object({
   name: z.string().trim().optional().or(z.literal("")),
+  notes: z.string().trim().optional().or(z.literal("")),
   role: RoleSchema.optional(),
   disabled: z.enum(["true", "false"]).optional(),
   availableClasses: z.coerce.number().int().min(0),
-  password: z.string().optional().or(z.literal("")),
 });
 
 export async function createUser(
@@ -91,10 +91,10 @@ export async function createUser(
   const parsed = CreateUserSchema.safeParse({
     email: formData.get("email"),
     name: formData.get("name"),
+    notes: formData.get("notes"),
     role: formData.get("role"),
     disabled: formData.get("disabled"),
     availableClasses: formData.get("availableClasses"),
-    password: formData.get("password"),
   });
 
   if (!parsed.success) {
@@ -112,16 +112,14 @@ export async function createUser(
     return { ok: false, fieldErrors: { email: ["Email ya existe."] } };
   }
 
-  const passwordHash = await bcrypt.hash(parsed.data.password, 10);
-
   const created = await prisma.user.create({
     data: {
       email,
       name: parsed.data.name ? String(parsed.data.name).trim() : null,
+      notes: parsed.data.notes ? String(parsed.data.notes).trim() : null,
       role: parsed.data.role as any,
       disabled: parsed.data.disabled === "true",
       availableClasses: parsed.data.availableClasses,
-      password: passwordHash,
     },
     select: { id: true },
   });
@@ -140,9 +138,11 @@ export async function updateUser(
 
   const parsed = UpdateUserSchema.safeParse({
     name: formData.get("name"),
+    notes: formData.get("notes"),
     role: formData.get("role") || undefined,
     disabled: (formData.get("disabled") as any) || undefined,
     availableClasses: formData.get("availableClasses"),
+    password: formData.get("password"),
   });
 
   if (!parsed.success) {
@@ -165,6 +165,7 @@ export async function updateUser(
 
   const data: any = {
     name: parsed.data.name ? String(parsed.data.name).trim() : null,
+    notes: parsed.data.notes ? String(parsed.data.notes).trim() : null,
     availableClasses: parsed.data.availableClasses,
   };
 
@@ -185,20 +186,12 @@ export async function updateUser(
     }
   }
 
-  if (parsed.data.password && parsed.data.password.trim().length > 0) {
-    if (parsed.data.password.trim().length < 8) {
-      return { ok: false, fieldErrors: { password: ["Mínimo 8 caracteres."] } };
-    }
-    data.password = await bcrypt.hash(parsed.data.password.trim(), 10);
-  }
-
   await prisma.user.update({
     where: { id: userId },
     data,
     select: { id: true },
   });
 
-  revalidatePath(`/${locale}/bo/users`);
   revalidatePath(`/${locale}/bo/users/${userId}/edit`);
   return { ok: true, userId };
 }
@@ -233,7 +226,6 @@ export async function setUserDisabled(
     select: { id: true },
   });
 
-  // Refrescar el listado de usuarios tras la acción
   revalidatePath(`/${locale}/bo/users`);
 }
 
@@ -268,6 +260,5 @@ export async function setUserRole(
     select: { id: true },
   });
 
-  // Refrescar el listado de usuarios tras la acción
   revalidatePath(`/${locale}/bo/users`);
 }

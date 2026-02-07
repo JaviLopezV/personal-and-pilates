@@ -16,12 +16,16 @@ model User {
   id        String   @id @default(cuid())
   email     String   @unique
   name      String?
+
+  /// Notas internas (BO) para apuntar cosas sobre el usuario.
+  notes     String?
+
   password  String?
   role      Role     @default(CLIENT)
   deleted   Boolean   @default(false)
   deletedAt DateTime?
   disabled  Boolean  @default(false)
-availableClasses Int @default(0)
+  availableClasses Int @default(0)
 
   emailVerifiedAt DateTime?
   verifyTokenHash String?
@@ -47,7 +51,6 @@ enum PageStatus {
 
 model Page {
   id        String     @id @default(cuid())
-
   path      String     @unique
 
   /** Nombre opcional para mostrar en BO */
@@ -60,7 +63,6 @@ model Page {
 
   @@index([status])
 }
-
 
 enum BookingStatus {
   ACTIVE
@@ -94,6 +96,10 @@ model ClassSession {
 model Booking {
   id         String        @id @default(cuid())
   status     BookingStatus @default(ACTIVE)
+
+  /// Asistencia (BO): si el cliente asistió a la clase reservada.
+  attended   Boolean       @default(true)
+  attendedAt DateTime?
 
   sessionId  String
   userId     String

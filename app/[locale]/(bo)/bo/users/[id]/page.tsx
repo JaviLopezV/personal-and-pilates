@@ -17,6 +17,7 @@ export default async function ViewUserPage({ params }: Params) {
       id: true,
       email: true,
       name: true,
+      notes: true,
       role: true,
       disabled: true,
       availableClasses: true,

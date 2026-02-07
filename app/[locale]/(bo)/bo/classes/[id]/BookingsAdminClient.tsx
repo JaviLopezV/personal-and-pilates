@@ -5,15 +5,19 @@ import { useParams, useRouter } from "next/navigation";
 import {
   Box,
   Button,
+  Checkbox,
   CircularProgress,
+  FormControlLabel,
   Stack,
   Typography,
 } from "@mui/material";
-import { cancelBookingAsAdmin } from "../actions";
+import { cancelBookingAsAdmin, setBookingAttendance } from "../actions";
 
 type BookingRow = {
   id: string;
   createdAt: string; // ISO string
+  attended: boolean;
+  attendedAt: string | null;
   user: {
     id: string;
     name: string | null;
@@ -41,18 +45,29 @@ export default function BookingsAdminClient({
   const params = useParams();
   const locale = (params?.locale as string) || "es";
 
-  const [busyId, setBusyId] = React.useState<string | null>(null);
+  const [busyCancelId, setBusyCancelId] = React.useState<string | null>(null);
+  const [busyAttendId, setBusyAttendId] = React.useState<string | null>(null);
 
   async function handleCancel(bookingId: string) {
     // eslint-disable-next-line no-alert
     if (!confirm("¿Cancelar la reserva de este cliente?")) return;
 
-    setBusyId(bookingId);
+    setBusyCancelId(bookingId);
     try {
       await cancelBookingAsAdmin(locale, bookingId);
       router.refresh();
     } finally {
-      setBusyId(null);
+      setBusyCancelId(null);
+    }
+  }
+
+  async function handleAttendance(bookingId: string, attended: boolean) {
+    setBusyAttendId(bookingId);
+    try {
+      await setBookingAttendance(locale, bookingId, attended);
+      router.refresh();
+    } finally {
+      setBusyAttendId(null);
     }
   }
 
@@ -65,13 +80,14 @@ export default function BookingsAdminClient({
   return (
     <Stack spacing={1.5}>
       {bookings.map((b) => {
-        const isBusy: boolean = busyId !== null && busyId === b.id;
+        const isBusyCancel: boolean = busyCancelId !== null && busyCancelId === b.id;
+        const isBusyAttend: boolean = busyAttendId !== null && busyAttendId === b.id;
         return (
           <Box
             key={b.id}
             sx={{
               display: "grid",
-              gridTemplateColumns: { xs: "1fr", sm: "1fr 220px 160px" },
+              gridTemplateColumns: { xs: "1fr", sm: "1fr 220px 200px 160px" },
               gap: 2,
               py: 1,
               borderBottom: "1px solid",
@@ -97,13 +113,31 @@ export default function BookingsAdminClient({
             </Typography>
 
             <Box sx={{ justifySelf: { sm: "end" } }}>
+              <FormControlLabel
+                sx={{ m: 0 }}
+                control={
+                  <Checkbox
+                    checked={!!b.attended}
+                    disabled={isBusyAttend || isBusyCancel}
+                    onChange={(e) => handleAttendance(b.id, e.target.checked)}
+                  />
+                }
+                label={
+                  <Typography variant="body2" color="text.secondary">
+                    Asistencia
+                  </Typography>
+                }
+              />
+            </Box>
+
+            <Box sx={{ justifySelf: { sm: "end" } }}>
               <Button
                 variant="outlined"
                 color="error"
-                disabled={isBusy}
+                disabled={isBusyCancel || isBusyAttend}
                 onClick={() => handleCancel(b.id)}
                 endIcon={
-                  isBusy ? (
+                  isBusyCancel ? (
                     <CircularProgress size={18} color="inherit" />
                   ) : undefined
                 }

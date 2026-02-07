@@ -17,6 +17,7 @@ type UserDto = {
   id: string;
   email: string;
   name: string | null;
+  notes: string | null;
   role: string;
   disabled: boolean;
   availableClasses: number;
@@ -171,6 +172,10 @@ export default function ViewUserClient({
             <Row label={t("details.id")} value={user.id} />
             <Row label={t("details.email")} value={user.email} />
             <Row label={t("details.name")} value={user.name || t("details.noName")} />
+            <Row
+              label={t("details.notes")}
+              value={user.notes ? user.notes : t("details.noNotes")}
+            />
             <Row label={t("details.role")} value={user.role} />
             <Row
               label={t("details.access")}

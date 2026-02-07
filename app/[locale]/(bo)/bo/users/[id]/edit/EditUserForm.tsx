@@ -23,6 +23,7 @@ type Props = {
     id: string;
     email: string;
     name: string | null;
+    notes: string | null;
     role: "CLIENT" | "ADMIN" | "SUPERADMIN";
     disabled: boolean;
     availableClasses: number;
@@ -64,6 +65,17 @@ export default function EditUserForm({ locale, user }: Props) {
             defaultValue={user.name ?? ""}
             error={state.ok === false && !!state.fieldErrors?.name}
             helperText={state.ok === false ? state.fieldErrors?.name?.[0] : ""}
+          />
+
+          <TextField
+            name="notes"
+            label={t("fields.notes")}
+            defaultValue={user.notes ?? ""}
+            multiline
+            minRows={3}
+            placeholder={t("fields.notesPlaceholder")}
+            error={state.ok === false && !!state.fieldErrors?.notes}
+            helperText={state.ok === false ? state.fieldErrors?.notes?.[0] : ""}
           />
 
           <Box>

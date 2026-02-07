@@ -342,6 +342,26 @@ export async function cancelBookingAsAdmin(locale: string, bookingId: string) {
     data: {
       status: "CANCELED",
       canceledAt: new Date(),
+      // Si se cancela una reserva, limpiamos asistencia por coherencia.
+      attended: false,
+      attendedAt: null,
+    },
+    select: { id: true },
+  });
+}
+
+export async function setBookingAttendance(
+  locale: string,
+  bookingId: string,
+  attended: boolean,
+) {
+  await requireBoUser(locale);
+
+  await prisma.booking.update({
+    where: { id: bookingId },
+    data: {
+      attended: !!attended,
+      attendedAt: attended ? new Date() : null,
     },
     select: { id: true },
   });

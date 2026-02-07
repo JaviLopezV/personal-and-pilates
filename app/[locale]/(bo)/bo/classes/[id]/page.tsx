@@ -37,6 +37,8 @@ export default async function BoClassDetailPage({ params }: Params) {
         select: {
           id: true,
           createdAt: true,
+          attended: true,
+          attendedAt: true,
           user: {
             select: {
               id: true,
@@ -85,6 +87,8 @@ export default async function BoClassDetailPage({ params }: Params) {
               (b: {
                 id: string;
                 createdAt: Date;
+                attended: boolean;
+                attendedAt: Date | null;
                 user: {
                   id: string;
                   name: string | null;
@@ -93,6 +97,8 @@ export default async function BoClassDetailPage({ params }: Params) {
               }) => ({
                 id: b.id,
                 createdAt: b.createdAt.toISOString(),
+                attended: b.attended,
+                attendedAt: b.attendedAt ? b.attendedAt.toISOString() : null,
                 user: b.user,
               }),
             )}

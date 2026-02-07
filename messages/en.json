@@ -320,6 +320,8 @@
       "fields": {
         "email": "Email",
         "name": "Name",
+        "notes": "Notes",
+        "notesPlaceholder": "Write anything useful about this user…",
         "role": "Role",
         "disabled": "Access",
         "availableClasses": "Available classes",
@@ -347,6 +349,8 @@
       "fields": {
         "email": "Email",
         "name": "Name",
+        "notes": "Notes",
+        "notesPlaceholder": "Write anything useful about this user…",
         "role": "Role",
         "disabled": "Access",
         "availableClasses": "Available classes",
@@ -384,6 +388,8 @@
         "email": "Email",
         "name": "Name",
         "noName": "(no name)",
+        "notes": "Notes",
+        "noNotes": "(no notes)",
         "role": "Role",
         "access": "Access",
         "enabled": "Enabled",
